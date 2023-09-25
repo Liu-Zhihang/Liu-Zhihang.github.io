@@ -3,6 +3,8 @@
 <html lang="en-us">
 
 <head>
+    <script src="./assets/js/echarts.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css" integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg==" crossorigin="anonymous" media="all" onload="this.media=&quot;all&quot;">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
@@ -17,15 +19,21 @@
     <meta name="theme-color" content="#1565c0">
     <link rel="stylesheet" href="assets/css/vendor-bundle.min.f1ecf783c14edc00c9320c205831ad8e.css">
     <!-- <link rel=“stylesheet” href=“https://use.fontawesome.com/releases/v5.15.4/css/all.css” media="all" onload="this.media='all';"> -->
-    <link rel="stylesheet" href="assets/css/academicons.min.css" integrity="sha512-W0xM4mr6dEP9nREo7Z9z+9X70wytKvMGeDsj7ps2+xg5QPrEBXC8tAW1IFnzjR6eoJ90JmCnFzerQJTLzIEHjA==" crossorigin="anonymous" media="all" onload="this.media='all';">
-    <link rel="stylesheet" href="assets/css/github.min.css" crossorigin="anonymous" title="hl-light" media="all" onload="this.media='all';">
-    <link rel="stylesheet" href="assets/css/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all';" disabled="">
+    <link rel="stylesheet" href="assets/css/academicons.min.css"
+        integrity="sha512-W0xM4mr6dEP9nREo7Z9z+9X70wytKvMGeDsj7ps2+xg5QPrEBXC8tAW1IFnzjR6eoJ90JmCnFzerQJTLzIEHjA=="
+        crossorigin="anonymous" media="all" onload="this.media='all';">
+    <link rel="stylesheet" href="assets/css/github.min.css" crossorigin="anonymous" title="hl-light" media="all"
+        onload="this.media='all';">
+    <link rel="stylesheet" href="assets/css/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print"
+        onload="this.media='all';" disabled="">
     <link rel="stylesheet" href="assets/css/wowchemy.d3fbabf3e02f0a40f84592dd992c35ca.css">
     <script src="assets/js/netlify-identity-widget.js"></script>
     <link rel="alternate" href="https://zhihangliu.cn/index.xml" type="application/rss+xml" title="Zhihang Liu |  刘志航">
     <link rel="manifest" href="assets/utils/manifest.webmanifest">
-    <link rel="icon" type="image/png" href="https://zhihangliu.cn/media/icon_hude87737ed686da82c0bf20138d66a788_154349_32x32_fill_lanczos_center_3.png">
-    <link rel="apple-touch-icon" type="image/png" href="https://zhihangliu.cn/media/icon_hude87737ed686da82c0bf20138d66a788_154349_180x180_fill_lanczos_center_3.png">
+    <link rel="icon" type="image/png"
+        href="https://zhihangliu.cn/media/icon_hude87737ed686da82c0bf20138d66a788_154349_32x32_fill_lanczos_center_3.png">
+    <link rel="apple-touch-icon" type="image/png"
+        href="https://zhihangliu.cn/media/icon_hude87737ed686da82c0bf20138d66a788_154349_180x180_fill_lanczos_center_3.png">
     <link rel="canonical" href="https://zhihangliu.cn/">
     <meta property="twitter:card" content="summary">
     <meta property="twitter:site" content="@wowchemy">
@@ -33,52 +41,55 @@
     <meta property="og:site_name" content="Zhihang Liu |  刘志航">
     <meta property="og:url" content="https://zhihangliu.cn/">
     <meta property="og:title" content="Zhihang Liu |  刘志航">
-    <meta property="og:description" content="Complexity | Complex Networks | Computational Social Science  | Urban Computing">
-    <meta property="og:image" content="https://zhihangliu.cn/media/icon_hude87737ed686da82c0bf20138d66a788_154349_512x512_fill_lanczos_center_3.png">
-    <meta property="twitter:image" content="https://zhihangliu.cn/media/icon_hude87737ed686da82c0bf20138d66a788_154349_512x512_fill_lanczos_center_3.png">
+    <meta property="og:description"
+        content="Complexity | Complex Networks | Computational Social Science  | Urban Computing">
+    <meta property="og:image"
+        content="https://zhihangliu.cn/media/icon_hude87737ed686da82c0bf20138d66a788_154349_512x512_fill_lanczos_center_3.png">
+    <meta property="twitter:image"
+        content="https://zhihangliu.cn/media/icon_hude87737ed686da82c0bf20138d66a788_154349_512x512_fill_lanczos_center_3.png">
     <meta property="og:locale" content="en-us">
     <script type="application/ld+json">
     { "@context": "https://schema.org", "@type": "WebSite", "potentialAction": { "@type": "SearchAction", "target": "https://zhihangliu.cn?q={search_term_string}", "query-input": "required name=search_term_string" }, "url": "https://zhihangliu.cn" }
     </script>
     <title>Zhihang Liu | 刘志航</title>
     <style type="text/css">
-    .medium-zoom-overlay {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        opacity: 0;
-        transition: opacity .3s;
-        will-change: opacity
-    }
+        .medium-zoom-overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity .3s;
+            will-change: opacity
+        }
 
-    .medium-zoom--opened .medium-zoom-overlay {
-        cursor: pointer;
-        cursor: zoom-out;
-        opacity: 1
-    }
+        .medium-zoom--opened .medium-zoom-overlay {
+            cursor: pointer;
+            cursor: zoom-out;
+            opacity: 1
+        }
 
-    .medium-zoom-image {
-        cursor: pointer;
-        cursor: zoom-in;
-        transition: transform .3s cubic-bezier(.2, 0, .2, 1) !important
-    }
+        .medium-zoom-image {
+            cursor: pointer;
+            cursor: zoom-in;
+            transition: transform .3s cubic-bezier(.2, 0, .2, 1) !important
+        }
 
-    .medium-zoom-image--hidden {
-        visibility: hidden
-    }
+        .medium-zoom-image--hidden {
+            visibility: hidden
+        }
 
-    .medium-zoom-image--opened {
-        position: relative;
-        cursor: pointer;
-        cursor: zoom-out;
-        will-change: transform
-    }
+        .medium-zoom-image--opened {
+            position: relative;
+            cursor: pointer;
+            cursor: zoom-out;
+            will-change: transform
+        }
 
-    li {
-        font-size: 1rem;
-    }
+        li {
+            font-size: 1rem;
+        }
     </style>
 </head>
 
@@ -92,11 +103,13 @@
                         <h1>Search</h1>
                     </div>
                     <div class="col-6 col-search-close">
-                        <a class="js-search" href="https://zhihangliu.cn/#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+                        <a class="js-search" href="https://zhihangliu.cn/#" aria-label="Close"><i
+                                class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div id="search-box">
-                    <input name="q" id="search-query" placeholder="Search..." autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control" aria-label="Search...">
+                    <input name="q" id="search-query" placeholder="Search..." autocapitalize="off" autocomplete="off"
+                        autocorrect="off" spellcheck="false" type="search" class="form-control" aria-label="Search...">
                 </div>
             </section>
             <section class="section-search-results">
@@ -112,7 +125,8 @@
                     <div class="d-none d-lg-inline-flex">
                         <a class="navbar-brand" href="https://zhihangliu.cn/">Zhihang Liu | 刘志航</a>
                     </div>
-                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-content"
+                        aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
                         <span><i class="fas fa-bars"></i></span>
                     </button>
                     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
@@ -121,31 +135,39 @@
                     <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
                         <ul class="navbar-nav d-md-inline-flex">
                             <li class="nav-item">
-                                <a class="nav-link active" href="https://zhihangliu.cn/#about" data-target="#about"><span>Home</span></a>
+                                <a class="nav-link active" href="https://zhihangliu.cn/#about"
+                                    data-target="#about"><span>Home</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="https://zhihangliu.cn/#posts" data-target="#posts"><span>Posts</span></a>
+                                <a class="nav-link" href="https://zhihangliu.cn/#posts"
+                                    data-target="#posts"><span>Posts</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="https://zhihangliu.cn/#projects" data-target="#projects"><span>Projects</span></a>
+                                <a class="nav-link" href="https://zhihangliu.cn/#projects"
+                                    data-target="#projects"><span>Projects</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="https://zhihangliu.cn/#featured" data-target="#featured"><span>Publications</span></a>
+                                <a class="nav-link" href="https://zhihangliu.cn/#featured"
+                                    data-target="#featured"><span>Publications</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="https://zhihangliu.cn/#talks" data-target="#talks"><span>Presentions</span></a>
+                                <a class="nav-link" href="https://zhihangliu.cn/#talks"
+                                    data-target="#talks"><span>Presentions</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="https://zhihangliu.cn/#contact" data-target="#contact"><span>Contact</span></a>
+                                <a class="nav-link" href="https://zhihangliu.cn/#contact"
+                                    data-target="#contact"><span>Contact</span></a>
                             </li>
                         </ul>
                     </div>
                     <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
                         <li class="nav-item">
-                            <a class="nav-link js-search" href="https://zhihangliu.cn/#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+                            <a class="nav-link js-search" href="https://zhihangliu.cn/#" aria-label="Search"><i
+                                    class="fas fa-search" aria-hidden="true"></i></a>
                         </li>
                         <li class="nav-item dropdown theme-dropdown">
-                            <a href="https://zhihangliu.cn/#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+                            <a href="https://zhihangliu.cn/#" class="nav-link" data-toggle="dropdown"
+                                aria-haspopup="true" aria-label="Display preferences">
                                 <i class="fas fa-moon" aria-hidden="true"></i>
                             </a>
                             <div class="dropdown-menu">
@@ -155,13 +177,15 @@
                                 <a href="https://zhihangliu.cn/#" class="dropdown-item js-set-theme-dark">
                                     <span>Dark</span>
                                 </a>
-                                <a href="https://zhihangliu.cn/#" class="dropdown-item js-set-theme-auto dropdown-item-active">
+                                <a href="https://zhihangliu.cn/#"
+                                    class="dropdown-item js-set-theme-auto dropdown-item-active">
                                     <span>Automatic</span>
                                 </a>
                             </div>
                         </li>
                         <li class="nav-item dropdown i18n-dropdown">
-                            <a href="https://zhihangliu.cn/#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Languages">
+                            <a href="https://zhihangliu.cn/#" class="nav-link" data-toggle="dropdown"
+                                aria-haspopup="true" aria-label="Languages">
                                 <i class="fas fa-globe mr-1" aria-hidden="true"></i></a>
                             <div class="dropdown-menu">
                                 <div class="dropdown-item dropdown-item-active">
@@ -186,7 +210,9 @@
                 <div class="row">
                     <div class="col-12 col-lg-4">
                         <div id="profile">
-                            <img class="avatar avatar-circle" width="270" height="270" src="./assets/images/avatar_hu52b4c1557bcb3599cc5c64f2ce5143cc_173763_270x270_fill_lanczos_center_3.png" alt="Zhihang Liu">
+                            <img class="avatar avatar-circle" width="270" height="270"
+                                src="./assets/images/avatar_hu52b4c1557bcb3599cc5c64f2ce5143cc_173763_270x270_fill_lanczos_center_3.png"
+                                alt="Zhihang Liu">
                             <div class="portrait-title">
                                 <h2>Zhihang Liu</h2>
                                 <h3>Complexity | Complex Networks | Computational Social Science | Urban Computing</h3>
@@ -194,17 +220,23 @@
                                     <a href="https://english.pku.edu.cn/" target="_blank" rel="noopener">
                                         <span>
                                             <a href="https://www.sysu.edu.cn/sysuen/">SYSU</a>
-                                             | <a href="https://english.pku.edu.cn/">PKU</a> | 
-                                             <a href="http://english.igsnrr.cas.cn/">CAS</a> | 
-                                             <a href='https://www.tum.de/'>TUM</a> | 
-                                             <a href='https://www.cuhk.edu.hk/english/index.html'>CUHK</a> </span>
+                                            | <a href="https://english.pku.edu.cn/">PKU</a> |
+                                            <a href="http://english.igsnrr.cas.cn/">CAS</a> |
+                                            <a href='https://www.tum.de/'>TUM</a> |
+                                            <a href='https://www.cuhk.edu.hk/english/index.html'>CUHK</a> </span>
                                     </a>
                                 </h3>
                             </div>
                             <ul class="network-icon" aria-hidden="true">
                                 <li>
-                                    <a href="https://github.com/Liu-Zhihang" target="_blank" rel="noopener" aria-label="github">
+                                    <a href="https://github.com/Liu-Zhihang" target="_blank" rel="noopener"
+                                        aria-label="github">
                                         <i class="fab fa-github big-icon"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="./assets/resume/CV_lzh.pdf" target="_blank" rel="noopener" aria-label="cv">
+                                        <i class="ai ai-cv big-icon"></i>
                                     </a>
                                 </li>
                             </ul>
@@ -213,12 +245,35 @@
                     <div class="col-12 col-lg-8">
                         <h1>Biography</h1>
                         <div class="article-style">
-                            <p>I am currently a master's student at Peking University with a keen focus on Urban Computing, Computational Social Science, Complexity, and Complex Networks. From September 2022 to September 2023, I had the privilege to serve as a research assistant in the <a href="https://www.bgd.ed.tum.de/en/team.html" target="_blank" rel="noopener">Big Geospatial Data Management Group</a> at the Technical University of Munich, Germany, under the guidance of <a href="https://www.bgd.ed.tum.de/en/team/martin_werner.html" target="_blank" rel="noopener">Prof. Dr. Martin Werner</a>. Presently, I am advancing my research at the <a href="http://www.iseis.cuhk.edu.hk/en/" target="_blank" rel="noopener">Institute of Space and Earth Information Science</a> at The Chinese University of Hong Kong, mentored by <a href="http://www.meipokwan.org/" target="_blank" rel="noopener">Professor Mei-Po Kwan</a>.</p>
-                            <p>Since 2020, I have been working as a part-time research assistant at the <a href="http://english.igsnrr.cas.cn/" target="_blank" rel="noopener">Institute of Geographic Sciences and Natural Resources Research, Chinese Academy of Sciences</a>, under the leadership of <a href="https://people.ucas.ac.cn/~liyurui?language=en" target="_blank" rel="noopener">Professor Li Yurui</a>, delving into regional complex systems simulation and Multi-Agent Reinforcement Learning.</p>
-                            <p>My aspiration is to integrate cutting-edge artificial intelligence algorithms into my research, with a particular interest in deep learning and large language models. My academic vision revolves around constructing a research framework based on the principles of spatiotemporal dynamics, causality, and scale, aiming for a deeper understanding of complex system dynamics.</p>
-                            <p>You can reach me via email: <a href="mailto:liuzhihang@stu.pku.edu.cn">liuzhihang@stu.pku.edu.cn</a></p>
+                            <p>I am currently a master's student at Peking University with a keen focus on Urban
+                                Computing, Computational Social Science, Complexity, and Complex Networks. From
+                                September 2022 to September 2023, I had the privilege to serve as a research assistant
+                                in the <a href="https://www.bgd.ed.tum.de/en/team.html" target="_blank"
+                                    rel="noopener">Big Geospatial Data Management Group</a> at the Technical University
+                                of Munich, Germany, under the guidance of <a
+                                    href="https://www.bgd.ed.tum.de/en/team/martin_werner.html" target="_blank"
+                                    rel="noopener">Prof. Dr. Martin Werner</a>. Presently, I am advancing my research at
+                                the <a href="http://www.iseis.cuhk.edu.hk/en/" target="_blank" rel="noopener">Institute
+                                    of Space and Earth Information Science</a> at The Chinese University of Hong Kong,
+                                mentored by <a href="http://www.meipokwan.org/" target="_blank" rel="noopener">Professor
+                                    Mei-Po Kwan</a>.</p>
+                            <p>Since 2020, I have been working as a part-time research assistant at the <a
+                                    href="http://english.igsnrr.cas.cn/" target="_blank" rel="noopener">Institute of
+                                    Geographic Sciences and Natural Resources Research, Chinese Academy of Sciences</a>,
+                                under the leadership of <a href="https://people.ucas.ac.cn/~liyurui?language=en"
+                                    target="_blank" rel="noopener">Professor Li Yurui</a>, delving into regional complex
+                                systems simulation and Multi-Agent Reinforcement Learning.</p>
+                            <p>My aspiration is to integrate cutting-edge artificial intelligence algorithms into my
+                                research, with a particular interest in deep learning and large language models. My
+                                academic vision revolves around constructing a research framework based on the
+                                principles of spatiotemporal dynamics, causality, and scale, aiming for a deeper
+                                understanding of complex system dynamics.</p>
+                            <p>You can reach me via email: <a
+                                    href="mailto:liuzhihang@stu.pku.edu.cn">liuzhihang@stu.pku.edu.cn</a></p>
                             <p>
-                                <i class="fas fa-download pr-1 fa-fw"></i> Download my <a href="./assets/resume/CV_lzh.pdf" target="_blank">resumé</a>.</p>
+                                <i class="fas fa-download pr-1 fa-fw"></i> Download my <a
+                                    href="./assets/resume/CV_lzh.pdf" target="_blank">resumé</a>.
+                            </p>
                         </div>
                         <div class="row">
                             <div class="col-md-5">
@@ -236,14 +291,16 @@
                                     <li>
                                         <i class="fa-li fas fa-graduation-cap"></i>
                                         <div class="description">
-                                            <p class="course">MSc in Urban Planning (Research in Urban Computing), 2024</p>
+                                            <p class="course">MSc in Urban Planning (Research in Urban Computing), 2024
+                                            </p>
                                             <p class="institution">Peking University</p>
                                         </div>
                                     </li>
                                     <li>
                                         <i class="fa-li fas fa-graduation-cap"></i>
                                         <div class="description">
-                                            <p class="course">BA in Public Administration (Research in Computational Social Science), 2021</p>
+                                            <p class="course">BA in Public Administration (Research in Computational
+                                                Social Science), 2021</p>
                                             <p class="institution">Sun Yat-Sen University</p>
                                         </div>
                                     </li>
@@ -259,7 +316,7 @@
             </div>
             <div class="container">
                 <div class="row featurette">
-                    <div class="col-md-12 section-heading" style="text-align: left;">
+                    <div class="col-md-12 section-heading">
                         <h1>Skills</h1>
                     </div>
                     <div class="col-12 col-sm-4">
@@ -282,30 +339,240 @@
                         <div class="section-subheading">Photography</div>
                         <!-- <p>10%</p> -->
                     </div>
-                    <div class="skill-intro" style="text-align: left;">
-                        <h1>Computer</h1>
-                        <ul>
-                            <li>Data Analysis, Graphics, Modelling and Simulation, Python (TensorFlow, PyTorch), R, JavaScript, HTML, Julia, ArcGIS, NetLogo, GEE</li>
-                        </ul>
-                        <h1>Research Methods</h1>
-                        <ul>
-                            <li>Machine Learning (Interpretable ML, Graph ML)</li>
-                            <li>Deep learning (Multi-Agent Reinforcement Learning, CV, NLP)</li>
-                            <li>Complex networks (Topology, Dynamics, Multilayer)</li>
-                            <li>Spatial algorithms</li>
-                            <li>Web spider & Geospatial web data visualization</li>
-                            <li>Advanced Statistics</li>
-                        </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="home-section-bg"> </div>
+            <div class="container" style="display: flex; justify-content: center; align-items: center;">
+                <div class="row resourse">
+                    <div class="juzhong">
+                        <div id="skill_network" style="width: 900px;height: 900px;border: 0 solid;"></div>
+                        <script type="text/javascript">
+                            // 初始化图表时设置style
+                            var myChart = echarts.init(document.getElementById('skill_network'));
+                            // 指定图表的配置项和数据
+                            var skill_network = {
+                                "categories": [
+                                    {
+                                        "name": "Computer",
+                                        "base": "Computer"
+                                    },
+                                    {
+                                        "name": "Research Methods",
+                                        "base": "Research Methods"
+                                    }
+                                ],
+                                "nodes": [
+                                    {
+                                        "name": "Computer",
+                                        "value": 15,
+                                        "color": "#025E73"
+                                    },
+                                    {
+                                        "name": "Research Methods",
+                                        "value": 15,
+                                        "color": "#F2A71B"
+                                    },
+                                    {
+                                        "name": "Data Analysis",
+                                        "value": 10,
+                                        "color": "#025E73"
+                                    },
+                                    {
+                                        "name": "Graphics",
+                                        "value": 10,
+                                        "color": "#025E73"
+                                    },
+                                    {
+                                        "name": "Modeling and Simulation",
+                                        "value": 10,
+                                        "color": "#025E73"
+                                    },
+                                    {
+                                        "name": "Python",
+                                        "value": 10,
+                                        "color": "#025E73"
+                                    },
+                                    {
+                                        "name": "TensorFlow",
+                                        "value": 5,
+                                        "color": "#025E73"
+                                    },
+                                    {
+                                        "name": "Pytorch",
+                                        "value": 5,
+                                        "color": "#025E73"
+                                    },
+                                    {
+                                        "name": "R",
+                                        "value": 10,
+                                        "color": "#025E73"
+                                    },
+                                    {
+                                        "name": "JavaScript",
+                                        "value": 10,
+                                        "color": "#025E73"
+                                    },
+                                    {
+                                        "name": "HTML",
+                                        "value": 10,
+                                        "color": "#025E73"
+                                    },
+                                    {
+                                        "name": "Julia",
+                                        "value": 10,
+                                        "color": "#025E73"
+                                    },
+                                    {
+                                        "name": "ArcGIS",
+                                        "value": 10,
+                                        "color": "#025E73"
+                                    },
+                                    {
+                                        "name": "NetLogo",
+                                        "value": 10,
+                                        "color": "#025E73"
+                                    },
+                                    {
+                                        "name": "GEE",
+                                        "value": 10,
+                                        "color": "#025E73"
+                                    },
+                                    {
+                                        "name": "Machine Learning",
+                                        "value": 10,
+                                        "color": "#F2A71B"
+                                    },
+                                    {
+                                        "name": "Deep Learning",
+                                        "value": 10,
+                                        "color": "#F2A71B"
+                                    },
+                                    {
+                                        "name": "Complex Networks",
+                                        "value": 10,
+                                        "color": "#F2A71B"
+                                    },
+                                    {
+                                        "name": "Spatial Algorithms",
+                                        "value": 10,
+                                        "color": "#F2A71B"
+                                    },
+                                    {
+                                        "name": "Web Spider & Geospatial Web Data Visualization",
+                                        "value": 10,
+                                        "color": "#F2A71B"
+                                    },
+                                    {
+                                        "name": "Advanced Statistics",
+                                        "value": 10,
+                                        "color": "#F2A71B"
+                                    }
+                                ],
+                                "links": [
+                                    { "source": "Data Analysis", "target": "Computer" },
+                                    { "source": "Graphics", "target": "Computer" },
+                                    { "source": "Modeling and Simulation", "target": "Computer" },
+                                    { "source": "Python", "target": "Computer" },
+                                    { "source": "TensorFlow", "target": "Python" },
+                                    { "source": "Pytorch", "target": "Python" },
+                                    { "source": "R", "target": "Computer" },
+                                    { "source": "JavaScript", "target": "Computer" },
+                                    { "source": "HTML", "target": "Computer" },
+                                    { "source": "Julia", "target": "Computer" },
+                                    { "source": "ArcGIS", "target": "Computer" },
+                                    { "source": "NetLogo", "target": "Computer" },
+                                    { "source": "GEE", "target": "Computer" },
+                                    { "source": "Machine Learning", "target": "Research Methods" },
+                                    { "source": "Deep Learning", "target": "Research Methods" },
+                                    { "source": "Complex Networks", "target": "Research Methods" },
+                                    { "source": "Spatial Algorithms", "target": "Research Methods" },
+                                    { "source": "Web Spider & Geospatial Web Data Visualization", "target": "Research Methods" },
+                                    { "source": "Advanced Statistics", "target": "Research Methods" }
+                                ]
+                            }
+                                ;
+
+                            var option = {
+                                // legend: {
+                                //   data: ['Computer', 'Research Methods']
+                                // },
+                                series: [
+                                    {
+                                        type: 'graph',
+                                        zoom: 8,
+                                        layout: 'force',
+                                        animation: true,
+                                        animationDuration: 1000,
+                                        // animationDuration: function (idx) {
+                                        //   // 越往后的数据时长越大
+                                        //   return idx * 100;
+                                        // },
+                                        // animationDelay: function (idx) {
+                                        //   // 越往后的数据延迟越大
+                                        //   return idx * 100;
+                                        // },
+                                        // animationDelayUpdate: function (idx) {
+                                        //   // 越往后的数据延迟越大
+                                        //   return idx * 100;
+                                        // },
+                                        label: {
+                                            show: true,
+                                            position: 'right',
+                                            formatter: '{b}'
+                                        },
+                                        labelLayout: {
+                                            hideOverlap: true
+                                        },
+                                        draggable: true,
+                                        data: skill_network.nodes.map(function (node) {
+                                            return {
+                                                name: node.name,
+                                                symbolSize: node.value,
+                                                itemStyle: {
+                                                    color: node.color,
+                                                },
+                                            };
+                                        }),
+                                        categories: skill_network.categories,
+                                        force: {
+                                            edgeLength: 5,
+                                            repulsion: 20,
+                                            gravity: 0.2
+                                        },
+                                        edges: skill_network.links.map(function (edge) {
+                                            return {
+                                                source: edge.source,
+                                                target: edge.target
+                                            };
+                                        }),
+                                        emphasis: {
+                                            focus: 'adjacency',
+                                            label: {
+                                                position: 'right',
+                                                show: true
+                                            }
+                                        },
+                                        roam: true,
+                                    }
+                                ]
+                            };
+                            option && myChart.setOption(option);
+                        </script>
                     </div>
                 </div>
             </div>
         </section>
+
         <section id="posts" class="home-section wg-pages">
             <div class="home-section-bg">
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
+                    <div
+                        class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
                         <h1 class="mb-0">Recent Posts</h1>
                     </div>
                     <div class="col-12 col-lg-8">
@@ -317,36 +584,47 @@
             <div class="home-section-bg">
             </div>
             <div class="container">
-                <div class="row">
-                    <div class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
+                <div class="row justify-content-center">
+                    <div class="section-heading col-12 mb-3 text-center">
                         <h1 class="mb-0">Projects</h1>
                     </div>
-                    <div class="col-12 col-lg-8">
+                    <div class="col-12">
                         <span class="d-none default-project-filter">*</span>
                         <div class="project-toolbar">
                             <div class="project-filters">
-                                <div class="btn-toolbar">
+                                <div class="btn-toolbar d-flex justify-content-center">
                                     <div class="btn-group flex-wrap">
-                                        <a href="https://zhihangliu.cn/#" data-filter="*" class="btn btn-primary btn-lg active">All</a>
-                                        <a href="https://zhihangliu.cn/#" data-filter=".js-id-Deep-Learning" class="btn btn-primary btn-lg">Mobility</a>
-                                        <a href="https://zhihangliu.cn/#" data-filter=".js-id-Demo" class="btn btn-primary btn-lg">Other</a>
+                                        <a href="https://zhihangliu.cn/#" data-filter="*"
+                                            class="btn btn-primary btn-lg active">All</a>
+                                        <a href="https://zhihangliu.cn/#" data-filter=".js-id-Deep-Learning"
+                                            class="btn btn-primary btn-lg">Mobility</a>
+                                        <a href="https://zhihangliu.cn/#" data-filter=".js-id-Demo"
+                                            class="btn btn-primary btn-lg">Other</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="isotope projects-container row js-layout-row" style="position: relative; height: 0px;">
-                            <div class="col-12 isotope-item js-id-Deep-Learning" style="position: absolute; left: 0px; top: 0px;">
+                        <div class="isotope projects-container row js-layout-row"
+                            style="position: relative; height: 0px;">
+                            <div class="col-12 isotope-item js-id-Deep-Learning"
+                                style="position: absolute; left: 0px; top: 0px;">
                                 <div class="col-lg-12 mb-5 view-showcase">
                                     <div class="row align-items-center">
                                         <div class="col-12 col-md-6">
-                                            <div class="section-subheading article-title mb-0 mt-0"><a href="./projects/sz_trips/index.html">THE TAXI TRACK IN SHENZHEN</a></div>
-                                            <div class="article-style">WE VISUALIZED THE TAXI TRACKS AND BUILDINGS IN SHENZHEN USING THE DECK.GL.</div>
+                                            <div class="section-subheading article-title mb-0 mt-0"><a
+                                                    href="./projects/sz_trips/index.html">THE TAXI TRACK IN SHENZHEN</a>
+                                            </div>
+                                            <div class="article-style">WE VISUALIZED THE TAXI TRACKS AND BUILDINGS IN
+                                                SHENZHEN USING THE DECK.GL.</div>
                                         </div>
-                                        <div class="col-12 col-md-6 order-first"><a href="./projects/sz_trips/index.html"><img src="./assets/images/track.png" height="304" width="540" alt="Example Project" loading="lazy"></a></div>
+                                        <div class="col-12 col-md-6 order-first"><a
+                                                href="./projects/sz_trips/index.html"><img
+                                                    src="./assets/images/track.png" height="304" width="540"
+                                                    alt="Example Project" loading="lazy"></a></div>
                                     </div>
                                 </div>
                             </div>
-                       </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -356,7 +634,8 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
+                    <div
+                        class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
                         <h1 class="mb-0">Featured Publications</h1>
                     </div>
                     <div class="col-12 col-lg-8">
@@ -369,13 +648,15 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
+                    <div
+                        class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
                         <h1 class="mb-0">Recent Publications</h1>
                     </div>
                     <div class="col-12 col-lg-8">
                         <div class="alert alert-note">
                             <div>
-                                Quickly discover relevant content by <a href="https://zhihangliu.cn/publications/">filtering publications</a>.
+                                Quickly discover relevant content by <a
+                                    href="https://zhihangliu.cn/publications/">filtering publications</a>.
                             </div>
                         </div>
                     </div>
@@ -387,7 +668,8 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
+                    <div
+                        class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
                         <h1 class="mb-0">Posts</h1>
                     </div>
                     <div class="col-12 col-lg-8">
@@ -400,10 +682,12 @@
         <div class="container">
             <footer class="site-footer">
                 <p class="powered-by copyright-license-text">
-                    © 2023 Me. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+                    © 2023 Me. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0"
+                        rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
                 </p>
                 <p class="powered-by footer-license-icons">
-                    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+                    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer"
+                        target="_blank" aria-label="Creative Commons">
                         <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
                         <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
                         <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
@@ -411,7 +695,10 @@
                     </a>
                 </p>
                 <p class="powered-by">
-                    Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+                    Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank"
+                        rel="noopener">Wowchemy</a> — the free, <a
+                        href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open
+                        source</a> website builder that empowers creators.
                 </p>
             </footer>
         </div>
@@ -455,7 +742,8 @@
                     <a class="btn btn-outline-primary my-1 js-copy-cite" href="https://zhihangliu.cn/#" target="_blank">
                         <i class="fas fa-copy"></i> Copy
                     </a>
-                    <a class="btn btn-outline-primary my-1 js-download-cite" href="https://zhihangliu.cn/#" target="_blank">
+                    <a class="btn btn-outline-primary my-1 js-download-cite" href="https://zhihangliu.cn/#"
+                        target="_blank">
                         <i class="fas fa-download"></i> Download
                     </a>
                     <div id="modal-error"></div>
@@ -464,7 +752,9 @@
         </div>
     </div>
     <script src="./assets/js/wowchemy-publication.ee00aa4e09ee62617fe2dc15bfcb3f7b.js" type="module"></script>
-    <iframe id="netlify-identity-widget" title="Netlify identity widget" style="position: fixed; top: 0; left: 0; border: none; width: 100%; height: 100%; overflow: visible; background: transparent; display: none; z-index: 99; " src="assets/src/saved_resource.html"></iframe>
+    <iframe id="netlify-identity-widget" title="Netlify identity widget"
+        style="position: fixed; top: 0; left: 0; border: none; width: 100%; height: 100%; overflow: visible; background: transparent; display: none; z-index: 99; "
+        src="assets/src/saved_resource.html"></iframe>
 </body>
 
 </html>
