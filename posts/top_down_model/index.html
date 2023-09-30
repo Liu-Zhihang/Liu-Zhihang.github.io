@@ -2869,36 +2869,35 @@
           <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-content"
             aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
             <span><i class="fas fa-bars"></i></span></button>
-            <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-              <a class="navbar-brand" href="https://zhihangliu.cn/">Zhihang Liu | 刘志航</a>
+          <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+            <a class="navbar-brand" href="https://zhihangliu.cn/">Zhihang Liu | 刘志航</a>
           </div>
           <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
-              <ul class="navbar-nav d-md-inline-flex">
-                  <li class="nav-item">
-                      <a class="nav-link active" href="https://zhihangliu.cn/#about"
-                          data-target="#about"><span>Home</span></a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="https://zhihangliu.cn/#posts"
-                          data-target="#posts"><span>Posts</span></a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="https://zhihangliu.cn/#projects"
-                          data-target="#projects"><span>Projects</span></a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="https://zhihangliu.cn/#featured"
-                          data-target="#featured"><span>Publications</span></a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="https://zhihangliu.cn/#talks"
-                          data-target="#talks"><span>Presentions</span></a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="https://zhihangliu.cn/#contact"
-                          data-target="#contact"><span>Contact</span></a>
-                  </li>
-              </ul>
+            <ul class="navbar-nav d-md-inline-flex">
+              <li class="nav-item">
+                <a class="nav-link active" href="https://zhihangliu.cn/#about"
+                  data-target="#about"><span>Home</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://zhihangliu.cn/#posts" data-target="#posts"><span>Posts</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://zhihangliu.cn/#projects"
+                  data-target="#projects"><span>Projects</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://zhihangliu.cn/#featured"
+                  data-target="#featured"><span>Publications</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://zhihangliu.cn/#talks"
+                  data-target="#talks"><span>Presentions</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://zhihangliu.cn/#contact"
+                  data-target="#contact"><span>Contact</span></a>
+              </li>
+            </ul>
           </div>
           <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
             <li class="nav-item d-none d-lg-inline-flex"><a class="nav-link" href="https://twitter.com/GeorgeCushen"
@@ -3125,6 +3124,93 @@
               \[
               B^k_{i, i} = -\Sigma^{c_{k+1}}_{j=1}A^{k+1}_{j, i} - \Sigma^{c_{k-1}}_{j=1}C^{k-1}_{j,i}
               \]
+
+              <h3>Code</h3>
+              <p>Firstly, we need to establish a master equation model for an SIS model. For a fully connected network
+                with 3 nodes, we can define the following 8 states:</p>
+
+              <ol>
+                <li>All nodes are in a susceptible state: (S, S, S)</li>
+                <li>Node 1 is in an infected state, other nodes are susceptible: (I, S, S)</li>
+                <li>Node 2 is in an infected state, other nodes are susceptible: (S, I, S)</li>
+                <li>Node 3 is in an infected state, other nodes are susceptible: (S, S, I)</li>
+                <li>Nodes 1 and 2 are infected, node 3 is susceptible: (I, I, S)</li>
+                <li>Nodes 1 and 3 are infected, node 2 is susceptible: (I, S, I)</li>
+                <li>Nodes 2 and 3 are infected, node 1 is susceptible: (S, I, I)</li>
+                <li>All nodes are in an infected state: (I, I, I)</li>
+              </ol>
+
+              <p>Now, we need to establish a master equation for each state. Let the infection rate be \( \beta \) and
+                the recovery rate be \( \gamma \). For each of the aforementioned states, we can get the following
+                master equations:</p>
+              \begin{align}
+              \dot{X_{SSS}} &= \gamma(X_{SSI} + X_{SIS} + X_{ISS}) \\
+              \dot{X_{SSI}} &= \gamma(X_{SII} + X{ISI}) - (2\tau + \gamma)X_{SSI}\\
+              \dot{X_{SIS}} &= \gamma(X_{SII} + X{IIS}) - (2\tau + \gamma)X_{SIS}\\
+              \dot{X_{ISS}} &= \gamma(X_{ISI} + X_{IIS}) - (2\tau + \gamma) X_{ISS} \\
+              \dot{X_{SII}} &= \gamma X_{III} + \tau(X_{SSI} + X_{SIS}) - 2(\tau + \gamma) X_{SII}\\
+              \dot{X_{ISI}} &= \gamma X_{III} + \tau(X_{SSI} + X_{ISS}) - 2(\tau + \gamma) X_{ISI}\\
+              \dot{X_{IIS}} &= \gamma X_{III} + \tau(X_{SIS} + X_{ISS}) - 2(\tau + \gamma)X_{IIS}\\
+              \dot{X_{III}} &= -3\gamma X_{III} + 2\tau(X_{SII}+X_{ISI} + X_{IIS})
+              \end{align}
+
+              <p>We use the Python to execute the above equations and plot the results.</p>
+
+              <div class="highlight">
+                <pre class="chrome">
+                <code>
+                import numpy as np
+                from scipy.integrate import odeint
+
+
+                def sis_model(state, t, beta, gamma):
+                    p = state
+                    
+                    dpdt = [
+                        gamma * p[1] + gamma * p[2] + gamma * p[3] - 3 * beta * p[0],
+                        beta * p[0] + gamma * p[4] - (gamma + 2 * beta) * p[1],
+                        beta * p[0] + gamma * p[5] - (gamma + 2 * beta) * p[2],
+                        beta * p[0] + gamma * p[6] - (gamma + 2 * beta) * p[3],
+                        2 * beta * p[1] - (2 * gamma + beta) * p[4],
+                        2 * beta * p[2] - (2 * gamma + beta) * p[5],
+                        2 * beta * p[3] - (2 * gamma + beta) * p[6],
+                        beta * p[4] + beta * p[5] + beta * p[6] - 3 * gamma * p[7]
+                    ]
+                    
+                    return dpdt
+
+
+                # Parameters
+                beta = 0.5
+                gamma = 0.2
+                initial_state = [1, 0, 0, 0, 0, 0, 0, 0]
+                t = np.linspace(0, 50, 1000)
+
+                # Solve the systemof ODEs
+                solution = odeint(sis_model, initial_state, t, args=(beta, gamma))
+
+                # Plot the results
+                import matplotlib.pyplot as plt
+
+                plt.figure(figsize=(10, 6))
+                plt.plot(t, solution[:, 0], label="(S, S, S)")
+                plt.plot(t, solution[:, 1], label="(I, S, S)")
+                plt.plot(t, solution[:, 2], label="(S, I, S)")
+                plt.plot(t, solution[:, 3], label="(S, S, I)")
+                plt.plot(t, solution[:, 4], label="(I, I, S)")
+                plt.plot(t, solution[:, 5], label="(I, S, I)")
+                plt.plot(t, solution[:, 6], label="(S, I, I)")
+                plt.plot(t, solution[:, 7], label="(I, I, I)")
+
+                plt.xlabel("Time")
+                plt.ylabel("Probability")
+                plt.legend()
+                plt.title("SIS Model with 3 Nodes")
+                plt.show()
+                </code>
+              </pre>
+              </div>
+
 
 
 
