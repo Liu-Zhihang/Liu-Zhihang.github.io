@@ -26,7 +26,7 @@
   <meta name="author" content="Zhihang Liu 刘志航">
   <meta name="description" content="Describe the top-down model on the epidemic network">
   <link rel="alternate" hreflang="en-us" href="https://academic-demo.netlify.app/post/writing-technical-content/">
-  <link rel="canonical" href="https://zhihangliu.cn/posts/top_down_model/">
+  <link rel="canonical" href="https://zhihangliu.cn/posts/percolation/">
   <link rel="manifest" href="https://academic-demo.netlify.app/manifest.webmanifest">
   <link rel="icon" type="image/png"
     href="https://academic-demo.netlify.app/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_3.png">
@@ -38,9 +38,9 @@
     <meta property="twitter:creator" content="@wowchemy">
     <meta property="twitter:image" content="https://academic-demo.netlify.app/post/jupyter/featured.png"> -->
   <meta property="og:site_name" content="Zhihang Liu 刘志航">
-  <meta property="og:url" content="https://zhihangliu.cn/posts/top_down_model/">
-  <meta property="og:title" content="Describe the top-down model on the epidemic network">
-  <meta property="og:description" content="Describe the top-down model on the epidemic network">
+  <meta property="og:url" content="https://zhihangliu.cn/posts/percolation/">
+  <meta property="og:title" content="Percolation Model on Virus Propagation Networks">
+  <meta property="og:description" content="Percolation Model on Virus Propagation Networks">
   <meta property="og:image" content="https://academic-demo.netlify.app/post/jupyter/featured.png">
   <meta property="og:locale" content="en-us">
   <meta property="article:published_time" content="2023-04-05T00:00:00+00:00">
@@ -48,7 +48,7 @@
   <!-- <script
     type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://academic-demo.netlify.app/post/writing-technical-content/"},"headline":"Writing technical content in Markdown","image":["https://academic-demo.netlify.app/post/writing-technical-content/featured.jpg"],"datePublished":"2019-07-12T00:00:00Z","dateModified":"2022-10-02T17:41:19+01:00","author":{"@type":"Person","name":"Alice Wu 吳恩達"},"publisher":{"@type":"Organization","name":"Academic","logo":{"@type":"ImageObject","url":"https://academic-demo.netlify.app/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png"}},"description":"Wowchemy is designed to give technical content creators a seamless experience. You can focus on the content and Wowchemy handles the rest.\nHighlight your code snippets, take notes on math classes, and draw diagrams from textual representation."}
   </script> -->
-  <title>Top-down Dynamics Model: The Master Equation</title>
+  <title>Percolation Model on Virus Propagation Networks</title>
   <script src="./assets/js/noerrors.js" charset="UTF-8"></script>
   <style type="text/css">
     .CtxtMenu_InfoClose {
@@ -2848,7 +2848,7 @@
           <div class="col-6">
             <h1>Search</h1>
           </div>
-          <div class="col-6 col-search-close"><a class="js-search" href="https://zhihangliu.cn/posts/top_down_model/#"
+          <div class="col-6 col-search-close"><a class="js-search" href="https://zhihangliu.cn/posts/percolation/#"
               aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a></div>
         </div>
         <div id="search-box"><input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
@@ -2904,16 +2904,16 @@
                 data-toggle="tooltip" data-placement="bottom" title="" target="_blank" rel="noopener"
                 aria-label="Follow me on Twitter" data-original-title="Follow me on Twitter"><i class="fab fa-twitter"
                   aria-hidden="true"></i></a></li>
-            <li class="nav-item"><a class="nav-link js-search" href="https://zhihangliu.cn/posts/top_down_model/#"
+            <li class="nav-item"><a class="nav-link js-search" href="https://zhihangliu.cn/posts/percolation/#"
                 aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a></li>
-            <li class="nav-item dropdown theme-dropdown"><a href="https://zhihangliu.cn/posts/top_down_model/#"
+            <li class="nav-item dropdown theme-dropdown"><a href="https://zhihangliu.cn/posts/percolation/#"
                 class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences"><i
                   class="fas fa-moon" aria-hidden="true"></i></a>
-              <div class="dropdown-menu"><a href="https://zhihangliu.cn/posts/top_down_model/#"
+              <div class="dropdown-menu"><a href="https://zhihangliu.cn/posts/percolation/#"
                   class="dropdown-item js-set-theme-light"><span>Light</span></a>
-                <a href="https://zhihangliu.cn/posts/top_down_model/#"
+                <a href="https://zhihangliu.cn/posts/percolation/#"
                   class="dropdown-item js-set-theme-dark"><span>Dark</span></a>
-                <a href="https://zhihangliu.cn/posts/top_down_model/#"
+                <a href="https://zhihangliu.cn/posts/percolation/#"
                   class="dropdown-item js-set-theme-auto dropdown-item-active"><span>Automatic</span></a>
               </div>
             </li>
@@ -2925,7 +2925,7 @@
   <div class="page-body">
     <article class="article">
       <div class="article-container pt-3">
-        <h1>Top-down Dynamics Model: The Master Equation</h1>
+        <h1>Percolation Model on Virus Propagation Networks</h1>
         <div class="article-metadata"><span class="article-date">Last updated on
             Oct 1, 2023</span>
           <span class="middot-divider"></span>
@@ -2941,297 +2941,238 @@
       </div>
       <div class="article-container">
         <div class="article-style">
-          <p><strong>Introduction</strong>: This article is the second in a series of reading notes on the
-            <strong>Mathematics of epidemics on networks</strong>.
-            Here, we primarily discuss employing the master equation to illustrate the dynamics of spread over networks.
-            From the perspective of random processes, we introduce the master equation, often referred to as the
-            Top-down model, which defines the state space of a system.
-            Through this journey, we will explore Markov chains, state transition matrices, the dimensional reduction of
-            multidimensional master equations, and more, granting us tools to accurately depict temporal and spatial
-            changes within a system.
+
+          <p><strong>Introduction:</strong> In this chapter, we continue to update the reading notes for "Mathematics of
+            Epidemics on Networks." Building upon the previous series, this chapter will focus on the percolation model
+            on virus propagation networks.</p>
+
+          <h2>Percolation Model on Virus Propagation Networks</h2>
+
+          <p>The authors believe that percolation models and epidemiological models are essentially consistent. When
+            considering different kinds of infectious disease models, corresponding percolation experimental designs can
+            be found. Our observation for Erdős–Rényi random networks in Table 6.1 suggests that for the discrete time
+            SIR model, the epidemic probability \( P \) equals the attack rate \( A \). In this section, we use
+            percolation theory to show that this is generally true across a much wider range of networks. We will see
+            that this result is specific to the discrete-time Markovian model. However, the tools we develop will allow
+            us to investigate the dynamic spread of the continuous-time model in much more detail, and even make
+            progress with non-Markovian disease processes. </p>
+          <p>Percolation is a large branch of network theory concerned
+            with the outcome of deleting nodes or edges from networks. We will show a close relation between SIR
+            epidemics and "bond percolation," where edges are deleted with some probability, and discuss some properties
+            of bond percolation which are relevant to our understanding of SIR disease spread. These observations will
+            form the basis for the remainder of the chapter. We begin with some properties of bond percolation. We then
+            demonstrate the relationship with the discrete-time SIR model we have considered here by showing that
+            simulating an epidemic with a given \( p \) starting from a given node is equivalent to performing bond
+            percolation with that given \( p \) and then following edges in the remaining network from the initial node.
+            We then use this fact to demonstrate that \( \mathcal{P} = \mathcal{A} \), and finally, we adapt the bond
+            percolation analogy to the usual continuous-time epidemic model and our non-Markovian model.</p>
+
+          <h2>Definition of Bond Percolation</h2>
+
+          <p>First, the authors define the percolated network, presenting how to describe a network that has undergone
+            the percolation process.</p>
+
+          <p>Given a network \( G \) and probability \( p \), we define the percolated network \( H \) to be the new
+            network formed by taking a copy of \( G \) and deleting each edge independently with probability \( 1 − p
+            \).</p>
+
+          <p>Subsequently, the authors defined what is called a connected component, an important feature of percolated
+            networks, and a key tool for network analysis.</p>
+
+          <p>A set of nodes \( B \) in an undirected network forms a connected component if there is a path between any
+            two nodes in \( B \), and no node in \( B \) has an edge to any node outside of \( B \).</p>
+
+          <p>After providing the two definitions, the authors further introduced the process of bond percolation. If we
+            delete many edges in a network, it eventually breaks into multiple connected components. Typically, if \( G
+            \) and \( p \) are large enough, then \( H \) has a single large "giant" connected component and possibly
+            many other much smaller connected components. The precise definition of a giant component is somewhat vague
+            for a fixed finite network, as was the definition of an epidemic. However, as the network grows larger
+            and/or \( p \) grows, the distinction between giant components and smaller components becomes clearer.</p>
+
+          <p>_Figure 1_ shows the result of percolation for different values of \( p \) and different network sizes in
+            Erdős-Rényi random networks of expected degree 5. As we increase the network size for small \( p \), the
+            largest component grows slowly and is not significantly larger than the second largest component. As \( N
+            \rightarrow \infty \), the proportion of the nodes in the largest component goes to zero. This changes
+            abruptly at some \( p=p_c \) (here \( p_c=0.2 \)), known as the percolation threshold. Above \( p_c \), the
+            largest component is significantly larger than the second largest component. As \( N \rightarrow \infty \),
+            the proportion of nodes in the largest component goes to a non-zero limit. _Figure 1_ shows that the
+            transition becomes sharper as \( N \) increases.</p>
+
+          <figure>
+            <div class="d-flex justify-content-center">
+              <div class="w-100"><img src="https://files.mdnice.com/user/30889/83c36ff5-c65b-4cb4-91ce-d4648735b317.png"
+                  alt="png" loading="lazy" data-zoomable="" class="medium-zoom-image"></div>
+            </div>
+          </figure>
+
+
+          <p>The above infectious process is actually a discrete Markov percolation process, and the author has provided
+            a pseudocode to implement this process.</p>
+
+          <div class='highlight'>
+            <pre class="chrome">
+          <code>
+          Input: Network G, index node(s) initial_infecteds, and transmission probability p.
+          Output: Lists t, S, I, and R giving number in each status at each time.
+          
+          function discrete SIR epidemic(G, test transmission, parameters, initial infecteds) 
+              infecteds initial infectedst, S, I, R [0], [N-length(Infecteds)], [length(Infecteds)], [0]
+              for u in G.nodes do
+                  u.susceptible True
+              for u in infecteds do
+                  u.susceptible False
+              while infecteds is not Empty do
+                  new infecteds []
+                  for u in infecteds do 
+                      for v in G.neighbours(u) do
+                          if v.susceptible and test transmission(u, v, parameters) then
+                              new infecteds.append(v)
+                              v.susceptible False 
+                  infecteds new infecteds
+                  R.append(R.last + I.last)
+                  I.append(length(infecteds))
+                  S.append(S.last - I.last)
+                  t.append(t.last+1)
+              return t, S, I, R
+          
+          function simple test transmission (u, v, [p])
+              return random(0,1)< p  # Returns True with probability p.
+          
+          function basic discrete SIR epidemic (G, p, initial infecteds)
+              return discrete SIR epidemic(G, simple test transmission, [p], initial infecteds)
+          </code>
+          </pre>
+          </div>
+
+          <p>
+            The algorithm above is used to calculate the number of infected at each time, assuming infections last a
+            single time step. The function `discrete_SIR_epidemic` calculates the events occurring in the outbreak. When
+            the algorithm considers transmission from \( u \) to \( v \), it calls an auxiliary function `test
+            transmission`. The function `basic_discrete_SIR_epidemic` implements the discrete-time Markovian model by
+            calling `discrete_SIR_epidemic` with appropriate inputs. In this case, `simple_test_transmission` returns
+            True with probability \( p \).
           </p>
 
-          <h3 id="first part">What the Master Equation Addresses</h2>
-            <p>Consider this scenario: Disease transmission is viewed as a node transitioning between states. At any
-              given
-              instant, we presume that the only factors affecting the likelihood of a node altering its state are its
-              present state and the states of its neighboring nodes. For instance, the rate at which a susceptible node
-              gets infected is solely determined by the number of its neighbors that are infected. While neighbors can
-              influence node transitions, the rate might also be independent of them. Specifically, the recovery rate of
-              an infected node is not dependent on the state of any neighbor. If each node within a network of N nodes
-              can
-              be in one of m distinct states, then there are \(m^N\) combinations of states for the entire network. For
-              SIS, this amounts to \(2^N\) states and for SIR, \(3^N\) states. We term this collective set of all
-              possible
-              states as the state space, denoted as \(\{S_1, S_2,…, S_n\}\). Ideally, we want to predict the network's
-              state at all times.<strong>However, as the number of nodes increases, the number of equations required to
-                describe the system also grows exponentially. This prompts us to simplify our research problem; rather
-                than providing an equation for every state, we focus on the probability distribution of the number of
-                states.</strong></p>
-            <p>The primary questions addressed in this chapter can be summarized as:
-              What's the probability of a node having a particular state at a given time?
-              How many nodes are expected to have a certain state at a designated time?</p>
 
-            <h3 id="second part">A Basic Example</h2>
-              <p>Imagine a network constituted by three nodes, with each node toggling between two possible states. This
-                results in the network's state space comprising eight distinct states.</p>
+          <p>
+            Through studying the above process, the author found the following conclusion: The proof relies on the fact
+            that for \( N → ∞ \), after percolation in one of these networks, the giant component always occupies the
+            same proportion. The probability of an epidemic is the probability that the initial node is in the giant
+            component, which equals this fraction. If an epidemic occurs, the entire component is infected, so the
+            proportion infected is also this fraction.
+          </p>
 
-              <figure>
-                <div class="d-flex justify-content-center">
-                  <div class="w-100"><img
-                      src="https://files.mdnice.com/user/30889/669002a4-3ba0-49f5-9338-df067c4eef36.png" alt="png"
-                      loading="lazy" data-zoomable="" class="medium-zoom-image"></div>
-                </div>
-              </figure>
+          <p>
+            In addition to introducing the above discrete timestep Markov process, the author also demonstrated the
+            continuous timestep percolation process and the spreading process that does not follow Markovian rules.
+          </p>
 
-              <p>Where \(τ\) represents the transmission rate and \(γ\) denotes the recovery rate. Factoring in the
-                relations between nodes, we deduce the following equations:</p>
+          <p>
+            In summary, this chapter shows that the spread of the virus on the network can be regarded as a percolation
+            process, revealing that percolation theory is a useful tool to study virus propagation on the network, and
+            is applicable to a wide range of networks, models, and processes.
+          </p>
 
-              \begin{align}
-              \dot{X_{SSS}} &= \gamma(X_{SSI} + X_{SIS} + X_{ISS}) \\
-              \dot{X_{SSI}} &= \gamma(X_{SII} + X{ISI}) - (2\tau + \gamma)X_{SSI}\\
-              \dot{X_{SIS}} &= \gamma(X_{SII} + X{IIS}) - (2\tau + \gamma)X_{SIS}\\
-              \dot{X_{ISS}} &= \gamma(X_{ISI} + X_{IIS}) - (2\tau + \gamma) X_{ISS} \\
-              \dot{X_{SII}} &= \gamma X_{III} + \tau(X_{SSI} + X_{SIS}) - 2(\tau + \gamma) X_{SII}\\
-              \dot{X_{ISI}} &= \gamma X_{III} + \tau(X_{SSI} + X_{ISS}) - 2(\tau + \gamma) X_{ISI}\\
-              \dot{X_{IIS}} &= \gamma X_{III} + \tau(X_{SIS} + X_{ISS}) - 2(\tau + \gamma)X_{IIS}\\
-              \dot{X_{III}} &= -3\gamma X_{III} + 2\tau(X_{SII}+X_{ISI} + X_{IIS})
-              \end{align}
+          <h2>Code</h2>
+          <p>We used the Python code to demonstrate the percolation process.</p>
 
-              <p><strong>**This set of equations is termed the Kolmogorov equations for the system or the master
-                  equation. Solutions to this equation provide the probability distribution of the system being in a
-                  particular state at a given moment.**</strong></p>
+          <div class="highlight">
+            <pre class="chrome">
+          <code>
+            import networkx as nx
+            import numpy as np
+            import matplotlib.pyplot as plt
 
-              <p>If we only need to understand the likelihood of a certain number of nodes existing in each state, the
-                equations simplify. Instead of computing the probability of each state, we calculate the system's
-                probability distribution based on the count of infected nodes.</p>
-              \begin{align}
-              \dot{Y_0} &= \gamma Y_1 \\
-              \dot{Y_1} &= 2 \gamma Y_2 - \gamma Y_1 - 2 \tau Y_1 \\
-              \dot{Y_2} &= 2 \tau Y_1 - 2 \gamma Y_2 - 2 \tau Y_2 + 3 \gamma Y_3 \\
-              \dot{Y_3} &= 2 \tau Y_2 - 3 \gamma Y_3
-              \end{align}
+            def er_random_network(N, P):
+                # Generate an empty undirected graph
+                G = nx.Graph()
+                # Add N nodes
+                G.add_nodes_from(range(N))
+                # Iterate through all possible edges
+                for i in range(N):
+                    for j in range(i+1, N):
+                        # Add an edge with probability P
+                        if np.random.random() < P:
+                            G.add_edge(i, j)
+                # Return the generated network
+                return G
 
-              <h3>Markov Chain (Markov-chain)</h3>
-              <p>Assuming the system's current state is \(S_i\), \(h(S_i, S_j)\) represents the rate of transition from
-                state i to state j. A critical equation associated with the detailed balance hypothesis of Markov chains
-                is introduced, equating the probability flowing out of state i to the probability flowing into it.</p>
-              <p>Using the aforementioned concept, we can predict the probability of the system being in a specific
-                state at the next moment, given the information available at the current moment.</p>
+            def percolation_process(G, p):
+                # Get the number of nodes and edges in the network
+                N = G.number_of_nodes()
+                M = G.number_of_edges()
+                # Copy the edge set of the network for random deletion
+                edges = list(G.edges())
+                # Initialize an empty list to store the fraction of the largest connected component at each time step
+                fractions = []
+                # Initialize the time step to 0
+                t = 0
+                # Execute the loop while the network still has edges
+                while M > 0:
+                    # Randomly select an edge
+                    i = np.random.randint(M)
+                    edge = edges[i]
+                    # Delete the edge with probability p
+                    if np.random.random() < p:
+                        G.remove_edge(*edge)
+                        edges.pop(i)
+                        M -= 1
+                    # Calculate the number of nodes in the network's largest connected component
+                    largest_cc = max(nx.connected_components(G), key=len)
+                    size = len(largest_cc)
+                    # Calculate the fraction of the largest connected component and add it to the list
+                    fraction = size / N
+                    fractions.append(fraction)
+                    # Increase the time step
+                    t += 1
+                # Return the list of fractions of the largest connected component at each time step
+                return fractions
 
-              $$
-              P(S(t = \delta t) = S_j | S(t) = S_i) = h(S_i, S_j)\delta_t + \mathrm{o}(\delta t)
-              $$
-
-              <p>By integrating over the conditional probabilities, we obtain the marginal probabilities:</p>
-              \[
-              \begin{align}
-              X_j(t + \delta t) &= P(S(t + \delta t) = S_j) \\
-              &= \Sigma_{i=1}^n P(S(t + \delta t) = S_j | S(t) = S_i)P(S(t) = S_i) \\
-              &= \{\Sigma_{i \neq j} h(S_i, S_j) \delta t X_i(t)\} + (1 - h(S_j, S-j)\delta t) X_j(t) +
-              \mathrm{o}(\delta t)
-              \end{align}
-              \]
-
-              <p>By rearranging, we arrive at the following equation:</p>
-              \[
-              \dot{X_j(t)} = \Sigma_{i=1}^n a_{ij}X_i(t)
-              \]
-              <p>Expressed in matrix form, this becomes:</p>
-              \[
-              \dot{X} = P \vec{X}
-              \]
-
-              <p>P is the state transition matrix. If there are m states and N nodes, then P is an \(m^N \times m^N\)
-                matrix. The elements of this matrix are the transition rates h we defined earlier. Next, within a given
-                time frame, we allow only one random event to occur and provide an expression for h:</p>
-              \[
-              f(x) = \left\{
-              \begin{aligned}
-              0, & \quad \text{if } S_{\alpha} \text{ and } S_{\beta} \text{ differ in at least two nodes} \\
-              f_{QT}(n_{Q1}, n_{Q2}, \ldots, n_{Qn}), & \quad \text{if } S_{\alpha} \text{ and } S_{\beta} \text{ differ
-              at exactly node i} \\
-              -\Sigma_{l \neq \alpha} h(S_{\alpha}, S_l), & \quad \text{if } S_{\alpha} = S_{\beta}
-              \end{aligned}
-              \right.
-              \]
-
-
-
-              <h3>State Transition Rates in the SIS Model</h3>
-              Now, we delve deeper into defining transition rates between different states. If the possible states of a
-              node are {S, I}, then we introduce \(S_k^j\) to depict a specific state of the system, where the
-              superscript k denotes the number of I nodes in the network, and the subscript j represents the jth
-              permutation of k nodes. The transition \(S(k)_j \rightarrow S(k+1)_i\) signifies the transmission of a
-              disease in a node. The rate of this transition depends on the number of neighboring nodes that are
-              infected and is expressed as \(nτ\).
-
-              <h3>The Master Equation in the SIS Model</h3>
-
-              <p>Recall our basic example where eight equations were used to delineate the system's dynamics. We can
-                represent these equations in matrix form: \(\dot{X} = P \cdot \vec{X}\), where X denotes the system's
-                state space.
-
-                Elements of the matrix P are transition rates between states.</p>
-
-              <figure>
-                <div class="d-flex justify-content-center">
-                  <div class="w-100"><img
-                      src="https://files.mdnice.com/user/30889/d1079754-0c59-4aa9-af49-f9d665185cf7.png" alt="png"
-                      loading="lazy" data-zoomable="" class="medium-zoom-image"></div>
-                </div>
-              </figure>
-
-              <p>If we decompose matrix P, we obtain:</p>
-
-              $$ P =
-              \begin{pmatrix}
-              B^0 & C^0 & 0 & 0 \\
-              A^1 & B^1 & C^1 & 0 \\
-              0 & A^2 & B^2 & C^2 \\
-              0 & 0 & A^3 & B ^ 3
-              \end{pmatrix}
-              $$
-
-              <p>From the matrix properties above, we infer:</p>
-              $$ \dot{X^k} = A^kX^{k-1} + B^kX^k + C^kX^(k+1) $$
-              <p>The matrix \(A^k\) represents the transition from Q to T, while the matrix \(C^k\) describes the
-                transition from T to Q. These matrices depend on the structure of the network as well as the transition
-                rates of \(f_{QT}\) and \(f_{TQ}\).</p>
-
-              <p>The element in the i-th row and j-th column of the matrix \(A_k\) is represented by \(A_k{i, j}\). It
-                gives the transition rate from \(S^{k−1}_j\) to \(S^k_i\), which is non-zero only when there's a
-                difference in a single node l, such that \(S^{k−1}_j (l) = Q\) and \(S^k_i (l) = T\). This rate depends
-                on the number of neighbors of node l that are in state T, i.e., \(A^k_{i, j} = h(S^{k−1}_j, S^k_i)\),
-                resulting in:</p>
-
-              \[
-              A^k_{i, j} = \left\{
-              \begin{align}
-              0, & \quad \text{if } S^{k-1}_j \text{ and } S^k_i \text{ differ in more than one node} \\
-              f_{QT}(n_T(l, S^{k-1}_j)), & \quad \text{if } S^{k-1}_j \text{ and } S^k_i \text{ differ only at node l}
-              \end{align}
-              \right.
-              \]
-
-              <p>Similarly, the entry in the i-th row and j-th column of matrix \(C^k\) is represented by \(C^k_{i, j}\)
-                and gives the transition rate from \(S^{k+1}_j\) to \(S^k_i\).</p>
-
-              <p>The matrix \(B^k\) is a diagonal matrix with \(c_k\) rows and columns. This is because \(B^k\) only
-                indicates the transition rates of state \(S^k_i \rightarrow S^k_j\). If \(S_i = S_j\), the transition
-                rate from \(S^k_i\) to \(S^k_j\) is zero. If \(S_i \neq S_j\), then:</p>
-
-              \[
-              B^k_{i, i} = -\Sigma^{c_{k+1}}_{j=1}A^{k+1}_{j, i} - \Sigma^{c_{k-1}}_{j=1}C^{k-1}_{j,i}
-              \]
-
-              <h3>Code</h3>
-              <p>Firstly, we need to establish a master equation model for an SIS model. For a fully connected network
-                with 3 nodes, we can define the following 8 states:</p>
-
-              <ol>
-                <li>All nodes are in a susceptible state: (S, S, S)</li>
-                <li>Node 1 is in an infected state, other nodes are susceptible: (I, S, S)</li>
-                <li>Node 2 is in an infected state, other nodes are susceptible: (S, I, S)</li>
-                <li>Node 3 is in an infected state, other nodes are susceptible: (S, S, I)</li>
-                <li>Nodes 1 and 2 are infected, node 3 is susceptible: (I, I, S)</li>
-                <li>Nodes 1 and 3 are infected, node 2 is susceptible: (I, S, I)</li>
-                <li>Nodes 2 and 3 are infected, node 1 is susceptible: (S, I, I)</li>
-                <li>All nodes are in an infected state: (I, I, I)</li>
-              </ol>
-
-              <p>Now, we need to establish a master equation for each state. Let the infection rate be \( \beta \) and
-                the recovery rate be \( \gamma \). For each of the aforementioned states, we can get the following
-                master equations:</p>
-              \begin{align}
-              \dot{X_{SSS}} &= \gamma(X_{SSI} + X_{SIS} + X_{ISS}) \\
-              \dot{X_{SSI}} &= \gamma(X_{SII} + X{ISI}) - (2\tau + \gamma)X_{SSI}\\
-              \dot{X_{SIS}} &= \gamma(X_{SII} + X{IIS}) - (2\tau + \gamma)X_{SIS}\\
-              \dot{X_{ISS}} &= \gamma(X_{ISI} + X_{IIS}) - (2\tau + \gamma) X_{ISS} \\
-              \dot{X_{SII}} &= \gamma X_{III} + \tau(X_{SSI} + X_{SIS}) - 2(\tau + \gamma) X_{SII}\\
-              \dot{X_{ISI}} &= \gamma X_{III} + \tau(X_{SSI} + X_{ISS}) - 2(\tau + \gamma) X_{ISI}\\
-              \dot{X_{IIS}} &= \gamma X_{III} + \tau(X_{SIS} + X_{ISS}) - 2(\tau + \gamma)X_{IIS}\\
-              \dot{X_{III}} &= -3\gamma X_{III} + 2\tau(X_{SII}+X_{ISI} + X_{IIS})
-              \end{align}
-
-              <p>We use the Python to execute the above equations and plot the results.</p>
-
-              <div class="highlight">
-                <pre class="chrome">
-                <code>
-                import numpy as np
-                from scipy.integrate import odeint
-
-
-                def sis_model(state, t, beta, gamma):
-                    p = state
-                    
-                    dpdt = [
-                        gamma * p[1] + gamma * p[2] + gamma * p[3] - 3 * beta * p[0],
-                        beta * p[0] + gamma * p[4] - (gamma + 2 * beta) * p[1],
-                        beta * p[0] + gamma * p[5] - (gamma + 2 * beta) * p[2],
-                        beta * p[0] + gamma * p[6] - (gamma + 2 * beta) * p[3],
-                        2 * beta * p[1] - (2 * gamma + beta) * p[4],
-                        2 * beta * p[2] - (2 * gamma + beta) * p[5],
-                        2 * beta * p[3] - (2 * gamma + beta) * p[6],
-                        beta * p[4] + beta * p[5] + beta * p[6] - 3 * gamma * p[7]
-                    ]
-                    
-                    return dpdt
-
-
-                # Parameters
-                beta = 0.5
-                gamma = 0.2
-                initial_state = [1, 0, 0, 0, 0, 0, 0, 0]
-                t = np.linspace(0, 50, 1000)
-
-                # Solve the systemof ODEs
-                solution = odeint(sis_model, initial_state, t, args=(beta, gamma))
-
-                # Plot the results
-                import matplotlib.pyplot as plt
-
-                plt.figure(figsize=(10, 6))
-                plt.plot(t, solution[:, 0], label="(S, S, S)")
-                plt.plot(t, solution[:, 1], label="(I, S, S)")
-                plt.plot(t, solution[:, 2], label="(S, I, S)")
-                plt.plot(t, solution[:, 3], label="(S, S, I)")
-                plt.plot(t, solution[:, 4], label="(I, I, S)")
-                plt.plot(t, solution[:, 5], label="(I, S, I)")
-                plt.plot(t, solution[:, 6], label="(S, I, I)")
-                plt.plot(t, solution[:, 7], label="(I, I, I)")
-
-                plt.xlabel("Time")
-                plt.ylabel("Probability")
-                plt.legend()
-                plt.title("SIS Model with 3 Nodes")
+            def plot_fractions(fractions):
+                # Get the number of time steps
+                T = len(fractions)
+                # Create an array to represent the time axis
+                times = np.arange(T)
+                # Create a figure object and a subplot object
+                fig, ax = plt.subplots()
+                # Plot a line graph on the subplot, with time on the x-axis and the fraction of the largest connected component on the y-axis
+                ax.plot(times, fractions, color='blue', marker='o')
+                # Set the title and labels of the subplot's axes
+                ax.set_title('Percolation process on ER random network')
+                ax.set_xlabel('Time step')
+                ax.set_ylabel('Fraction of largest connected component')
+                # Display the plot
                 plt.show()
-                </code>
-              </pre>
-              </div>
 
 
-              <figure>
-                <div class="d-flex justify-content-center">
-                  <div class="w-100"><img
-                      src="./assets/images/结果图.png" alt="png"
-                      loading="lazy" data-zoomable="" class="medium-zoom-image"></div>
-                </div>
-              </figure>
+            # Generate an ER random network
+            G = er_random_network(100, 0.1)
+            # Simulate the percolation process and get a list of fractions of the largest connected component at each time step
+            fractions = percolation_process(G, 0.01)
+            # Plot a line graph to display the results of the percolation process
+            plot_fractions(fractions)
+          </code>
+          </pre>
+          </div>
 
+          <figure>
+            <div class="d-flex justify-content-center">
+              <div class="w-100"><img src="./assets/images/percolation.png"
+                  alt="png" loading="lazy" data-zoomable="" class="medium-zoom-image"></div>
+            </div>
+          </figure>
 
-              <div class="media author-card content-widget-hr"><a href="https://academic-demo.netlify.app/"><img
-                    class="avatar mr-3 avatar-circle"
-                    src="./assets/images/avatar_hu52b4c1557bcb3599cc5c64f2ce5143cc_173763_270x270_fill_lanczos_center_3.png"
-                    alt="Zhihang Liu 刘志航"></a>
-                <div class="media-body">
-                  <h5 class="card-title"><a href="https://academic-demo.netlify.app/">Zhihang Liu 刘志航</a></h5>
-                  <h6 class="card-subtitle">Master student at the Peking University</h6>
-                  <p class="card-text">My research interests include Urban Computing, Computational Social Science,
-                    Complexity, and Complex Networks.</p>
-                </div>
-              </div>
+          <div class="media author-card content-widget-hr"><a href="https://zhihangliu.cn/"><img
+                class="avatar mr-3 avatar-circle"
+                src="./assets/images/avatar_hu52b4c1557bcb3599cc5c64f2ce5143cc_173763_270x270_fill_lanczos_center_3.png"
+                alt="Zhihang Liu 刘志航"></a>
+            <div class="media-body">
+              <h5 class="card-title"><a href="https://zhihangliu.cn/">Zhihang Liu 刘志航</a></h5>
+              <h6 class="card-subtitle">Master student at the Peking University</h6>
+              <p class="card-text">My research interests include Urban Computing, Computational Social Science,
+                Complexity, and Complex Networks.</p>
+            </div>
+          </div>
         </div>
     </article>
   </div>
@@ -3292,8 +3233,8 @@
           <pre><code></code></pre>
         </div>
         <div class="modal-footer"><a class="btn btn-outline-primary my-1 js-copy-cite"
-            href="https://zhihangliu.cn/posts/top_down_model/#" target="_blank"><i class="fas fa-copy"></i> Copy</a>
-          <a class="btn btn-outline-primary my-1 js-download-cite" href="https://zhihangliu.cn/posts/top_down_model/#"
+            href="https://zhihangliu.cn/posts/percolation/#" target="_blank"><i class="fas fa-copy"></i> Copy</a>
+          <a class="btn btn-outline-primary my-1 js-download-cite" href="https://zhihangliu.cn/posts/percolation/#"
             target="_blank"><i class="fas fa-download"></i> Download</a>
           <div id="modal-error"></div>
         </div>
