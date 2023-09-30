@@ -12,7 +12,7 @@
   <link rel="preload" as="style" href="./assets/utility/css2">
   <link rel="stylesheet" href="./assets/utility/css2" media="all" onload="this.media=&quot;all&quot;">
   <script src="./assets/js/mathjax-config.js"></script>
-  <link rel="stylesheet" href="./assets/css/vendor-bundle.min.047268c6dd09ad74ba54a0ba71837064.css" media="all"
+  <link rel="stylesheet" href="./assets/css/vendor-bundle.min.f1ecf783c14edc00c9320c205831ad8e.css" media="all"
     onload="this.media=&quot;all&quot;">
   <link rel="stylesheet" href="./assets/css/academicons.min.css"
     integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg=="
@@ -45,8 +45,9 @@
   <meta property="og:locale" content="en-us">
   <meta property="article:published_time" content="2023-04-05T00:00:00+00:00">
   <meta property="article:modified_time" content="2023-04-06T17:41:19+01:00">
-  <script
-    type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://academic-demo.netlify.app/post/writing-technical-content/"},"headline":"Writing technical content in Markdown","image":["https://academic-demo.netlify.app/post/writing-technical-content/featured.jpg"],"datePublished":"2019-07-12T00:00:00Z","dateModified":"2022-10-02T17:41:19+01:00","author":{"@type":"Person","name":"Alice Wu 吳恩達"},"publisher":{"@type":"Organization","name":"Academic","logo":{"@type":"ImageObject","url":"https://academic-demo.netlify.app/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png"}},"description":"Wowchemy is designed to give technical content creators a seamless experience. You can focus on the content and Wowchemy handles the rest.\nHighlight your code snippets, take notes on math classes, and draw diagrams from textual representation."}</script>
+  <!-- <script
+    type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://academic-demo.netlify.app/post/writing-technical-content/"},"headline":"Writing technical content in Markdown","image":["https://academic-demo.netlify.app/post/writing-technical-content/featured.jpg"],"datePublished":"2019-07-12T00:00:00Z","dateModified":"2022-10-02T17:41:19+01:00","author":{"@type":"Person","name":"Alice Wu 吳恩達"},"publisher":{"@type":"Organization","name":"Academic","logo":{"@type":"ImageObject","url":"https://academic-demo.netlify.app/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png"}},"description":"Wowchemy is designed to give technical content creators a seamless experience. You can focus on the content and Wowchemy handles the rest.\nHighlight your code snippets, take notes on math classes, and draw diagrams from textual representation."}
+  </script> -->
   <title>Top-down Dynamics Model: The Master Equation</title>
   <script src="./assets/js/noerrors.js" charset="UTF-8"></script>
   <style type="text/css">
@@ -2863,24 +2864,41 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
         <div class="container-xl">
-          <div class="d-none d-lg-inline-flex"><a class="navbar-brand" href="https://zhihangliu.cn/">Academic</a></div>
+          <div class="d-none d-lg-inline-flex"><a class="navbar-brand" href="https://zhihangliu.cn/">zhihang Liu |
+              刘志航</a></div>
           <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-content"
             aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
             <span><i class="fas fa-bars"></i></span></button>
-          <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none"><a class="navbar-brand"
-              href="https://zhihangliu.cn/">Academic</a></div>
+            <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+              <a class="navbar-brand" href="https://zhihangliu.cn/">Zhihang Liu | 刘志航</a>
+          </div>
           <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
-            <ul class="navbar-nav d-md-inline-flex">
-              <li class="nav-item"><a class="nav-link" href="https://zhihangliu.cn/#about"><span>Home</span></a></li>
-              <li class="nav-item"><a class="nav-link" href="https://zhihangliu.cn/#posts"><span>Posts</span></a></li>
-              <li class="nav-item"><a class="nav-link" href="https://zhihangliu.cn/#projects"><span>Projects</span></a>
-              </li>
-              <li class="nav-item"><a class="nav-link" href="https://zhihangliu.cn/#talks"><span>Talks</span></a></li>
-              <li class="nav-item"><a class="nav-link"
-                  href="https://zhihangliu.cn/#featured"><span>Publications</span></a></li>
-              <li class="nav-item"><a class="nav-link" href="https://zhihangliu.cn/#contact"><span>Contact</span></a>
-              </li>
-            </ul>
+              <ul class="navbar-nav d-md-inline-flex">
+                  <li class="nav-item">
+                      <a class="nav-link active" href="https://zhihangliu.cn/#about"
+                          data-target="#about"><span>Home</span></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="https://zhihangliu.cn/#posts"
+                          data-target="#posts"><span>Posts</span></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="https://zhihangliu.cn/#projects"
+                          data-target="#projects"><span>Projects</span></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="https://zhihangliu.cn/#featured"
+                          data-target="#featured"><span>Publications</span></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="https://zhihangliu.cn/#talks"
+                          data-target="#talks"><span>Presentions</span></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="https://zhihangliu.cn/#contact"
+                          data-target="#contact"><span>Contact</span></a>
+                  </li>
+              </ul>
           </div>
           <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
             <li class="nav-item d-none d-lg-inline-flex"><a class="nav-link" href="https://twitter.com/GeorgeCushen"
@@ -3118,7 +3136,8 @@
                 <div class="media-body">
                   <h5 class="card-title"><a href="https://academic-demo.netlify.app/">Zhihang Liu 刘志航</a></h5>
                   <h6 class="card-subtitle">Master student at the Peking University</h6>
-                  <p class="card-text">My research interests include Urban Computing, Computational Social Science, Complexity, and Complex Networks.</p>
+                  <p class="card-text">My research interests include Urban Computing, Computational Social Science,
+                    Complexity, and Complex Networks.</p>
                 </div>
               </div>
         </div>
@@ -3136,10 +3155,9 @@
       </footer>
     </div>
   </div>
-  <script
-    src="./assets/js/vendor-bundle.min.1d4346c6f7d46c340dc0a9058dd85c13.js"></script>
-  <script src="./assets/js/mermaid.min.js"
-    integrity="sha256-TIYL00Rhw/8WaoUhYTLX9SKIEFdXxg+yMWSLVUbhiLg=" crossorigin="anonymous" title="mermaid"></script>
+  <script src="./assets/js/vendor-bundle.min.1d4346c6f7d46c340dc0a9058dd85c13.js"></script>
+  <script src="./assets/js/mermaid.min.js" integrity="sha256-TIYL00Rhw/8WaoUhYTLX9SKIEFdXxg+yMWSLVUbhiLg="
+    crossorigin="anonymous" title="mermaid"></script>
   <script id="search-hit-fuse-template" type="text/x-template">
     <div class="search-hit" id="summary-{{key}}">
       <div class="search-hit-content">
@@ -3161,9 +3179,7 @@
     integrity="sha512-gttPT9uTUiaLBj6XZdcB0ydKXiDaBwstInkN4Qvp1Nz3iwXNc8TTQplIEPIGxyJBDqERjwkKxf2OyO47/0EHbQ=="
     crossorigin="anonymous"></script>
   <script id="page-data" type="application/json">{"use_headroom":true}</script>
-  <script
-    src="./assets/js/wowchemy-headroom.db4755770454eb63685f8de785c0a172.js"
-    type="module"></script>
+  <script src="./assets/js/wowchemy-headroom.db4755770454eb63685f8de785c0a172.js" type="module"></script>
   <style>
     .markmap>svg {
       width: 100%;
@@ -3172,8 +3188,7 @@
   </style>
   <script>window.markmap = { autoLoader: { manual: !1, onReady() { const { autoLoader: e, builtInPlugins: t } = window.markmap; e.transformPlugins = t.filter(e => e.name !== "prism") } } }</script>
   <script src="./assets/utility/markmap-autoloader"></script>
-  <script
-    src="./assets/js/wowchemy.min.d1a621ded99ecec8400cbe9bc8c34b21.js"></script>
+  <script src="./assets/js/wowchemy.min.d1a621ded99ecec8400cbe9bc8c34b21.js"></script>
   <div id="modal" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -3185,20 +3200,16 @@
           <pre><code></code></pre>
         </div>
         <div class="modal-footer"><a class="btn btn-outline-primary my-1 js-copy-cite"
-            href="https://zhihangliu.cn/posts/top_down_model/#" target="_blank"><i
-              class="fas fa-copy"></i> Copy</a>
-          <a class="btn btn-outline-primary my-1 js-download-cite"
-            href="https://zhihangliu.cn/posts/top_down_model/#" target="_blank"><i
-              class="fas fa-download"></i> Download</a>
+            href="https://zhihangliu.cn/posts/top_down_model/#" target="_blank"><i class="fas fa-copy"></i> Copy</a>
+          <a class="btn btn-outline-primary my-1 js-download-cite" href="https://zhihangliu.cn/posts/top_down_model/#"
+            target="_blank"><i class="fas fa-download"></i> Download</a>
           <div id="modal-error"></div>
         </div>
       </div>
     </div>
   </div>
-  <script
-    src="./assets/js/wowchemy-publication.68f8d7090562ca65fc6d3cb3f8f2d2cb.js"
-    type="module"></script><svg id="js-plotly-tester" xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
+  <script src="./assets/js/wowchemy-publication.68f8d7090562ca65fc6d3cb3f8f2d2cb.js" type="module"></script><svg
+    id="js-plotly-tester" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
     style="position: absolute; left: -10000px; top: -10000px; width: 9000px; height: 9000px; z-index: 1;">
     <path class="js-reference-point" d="M0,0H1V1H0Z" style="stroke-width: 0; fill: black;"></path>
   </svg>
