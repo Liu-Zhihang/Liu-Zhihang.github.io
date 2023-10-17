@@ -59,7 +59,7 @@
         .left-bottom-corner {
           position: fixed;
           left: 5%;
-          bottom: 10%;
+          bottom: 20%;
           z-index: 1000;
           color: #333;
           /* 设置文本颜色为深灰色 */
@@ -98,6 +98,50 @@
           z-index: 1000;
           /* ensure the title is above other elements */
         }
+
+        .left-bottom-corner-sign2 {
+          position: fixed;
+          left: 5%;
+          bottom: 10%;
+          z-index: 1000;
+          color: #333;
+          /* 设置文本颜色为深灰色 */
+          text-decoration: none;
+          /* 移除下划线 */
+        }
+
+        .left-bottom-corner-sign2 img {
+          position: relative;
+          width: 168px;
+          height: 89px;
+        }
+
+        .left-bottom-corner-sign2 span {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 16px;
+          color: #333;
+          /* 设置文本颜色为深灰色 */
+          font-weight: bold;
+          /* 设置文本为粗体 */
+          white-space: nowrap;
+          /* 防止文本换行 */
+          z-index: 1500
+        }
+
+        .top-left-title {
+          position: fixed;
+          top: 0;
+          left: 0;
+          margin: 10px;
+          font-size: 18px;
+          color: #333;
+          z-index: 1000;
+          /* ensure the title is above other elements */
+        }
+
       </style>
       <!--MapBox token-->
       <script>
@@ -136,9 +180,13 @@
   <h1 class="top-left-title" style='color: #fff;font-size:32px'>The different types of multi-modal travel OD networks
     during Evening Peak.</h1>
   <!-- 图标 -->
-  <a href="./Social_Community.html" class="left-bottom-corner">
+  <a href="./Types_of_social_community.html" class="left-bottom-corner">
     <span>Community Detection</span>
     <img src="./assets/images/three.png" alt="no image exits">
+  </a>
+  <a href="./Morning_bike_sharing.html" class="left-bottom-corner-sign2">
+    <span>Morning Peak</span>
+    <img src="./assets/images/three_reverse.png" alt="no image exits">
   </a>
   <!-- We will put our React component inside this div. -->
   <div id="app">
