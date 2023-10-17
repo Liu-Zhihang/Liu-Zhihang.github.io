@@ -28,6 +28,7 @@
             position: relative;
             width: 168px;
             height: 89px;
+            transform: scaleX(-1);
         }
 
         .left-bottom-corner span {
@@ -50,7 +51,7 @@
 <body style="height: 100%; margin: 0">
     <a href="./Evening_bike_sharing.html" class="left-bottom-corner">
         <span>Evening Peak</span>
-        <img src="./assets/images/three_reverse.png" alt="no image exits">
+        <img src="./assets/images/three.png" alt="no image exits">
     </a>
     <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
     <div id="main" style="height:100%;"></div>
@@ -59,6 +60,7 @@
         var myChart = echarts.init(document.getElementById('main'));
         // 指定图表的配置项和数据
         mapboxgl.accessToken = mapboxglToken
+        myChart.showLoading();
         $.getJSON('./assets/data/map_data_echarts/sub_line.json', function (subdata) {
             $.getJSON('./assets/data/map_data_echarts/bus_line.json', function (busdata) {
                 $.getJSON('./assets/data/shenzhen_border_line.json', function (boundaryData) {
