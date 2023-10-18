@@ -45,10 +45,22 @@
             /* 防止文本换行 */
             z-index: 1500
         }
+
+        .top-left-title {
+          position: fixed;
+          top: 0;
+          left: 0;
+          margin: 10px;
+          font-size: 18px;
+          color: #696868;
+          z-index: 1000;
+          /* ensure the title is above other elements */
+        }
     </style>
 </head>
 
 <body style="height: 100%; margin: 0">
+    <h1 class="top-left-title" style='color: #fff;font-size:32px'>Scoail Community Detection.</h1>
     <a href="./Evening_bike_sharing.html" class="left-bottom-corner">
         <span>Evening Peak</span>
         <img src="./assets/images/three.png" alt="no image exits">
