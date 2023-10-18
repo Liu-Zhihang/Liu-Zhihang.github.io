@@ -60,7 +60,7 @@
         var myChart = echarts.init(document.getElementById('main'));
         // 指定图表的配置项和数据
         mapboxgl.accessToken = mapboxglToken
-        myChart.showLoading();
+        // myChart.showLoading();
         $.getJSON('./assets/data/map_data_echarts/sub_line.json', function (subdata) {
             $.getJSON('./assets/data/map_data_echarts/bus_line.json', function (busdata) {
                 $.getJSON('./assets/data/shenzhen_border_line.json', function (boundaryData) {
