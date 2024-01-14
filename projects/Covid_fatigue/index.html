@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chart on Video Background</title>
+    <!-- 引入 ECharts 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.0/dist/echarts.min.js"></script>
+    <style>
+        /* 视频背景样式 */
+        .video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
+            background-size: cover;
+            overflow: hidden;
+            opacity: 1;
+            /* 调整视频透明度 */
+        }
+
+        /* 图表容器样式 */
+        #main {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 700px;
+            height: 400px;
+            z-index: 100;
+        }
+
+        /* 标题样式 */
+        /* 标题样式 */
+        /* 标题样式 */
+        .centered-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 水平和垂直居中 */
+            z-index: 100;
+            font-size: 42px;
+            /* 或尝试减小字体大小 */
+            color: white;
+            /* 字体颜色 */
+            text-align: center;
+            /* 文本居中对齐 */
+            font-weight: bold;
+            /* 加粗字体 */
+            font-family: 'Times New Roman', Times, serif;
+            /* 设置字体为 Times New Roman */
+            max-width: 100%;
+            /* 设定最大宽度 */
+            white-space: nowrap;
+            /* 防止文本换行 */
+        }
+
+
+        /* 底部注释样式 */
+        .bottom-notice {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            font-size: 28px;
+            color: white;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+
+        .bottom-right-icon {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .bottom-right-icon img {
+            max-width: 50px;
+            height: auto;
+            margin-left: 10px;
+            /* 更新为左边距，因为图标在文字之后 */
+        }
+
+        .icon-text {
+            font-size: 28px;
+            font-weight: bold;
+            /* 加粗字体 */
+            font-family: 'Times New Roman', Times, serif;
+            /* New Roman 字体 */
+            color: #fff;
+            text-decoration: none;
+            /* 移除链接的下划线 */
+            /* 如有需要，可以添加更多样式 */
+        }
+    </style>
+</head>
+
+<body>
+
+    <video autoplay loop muted class="video-background">
+        <source src="./assets/first_page.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- 标题元素 -->
+    <div class="centered-title">
+        Tale of Two Cities: Exploring Pandemic Fatigue under China's COVID-19 Policies
+    </div>
+
+    <!-- 底部注释元素 -->
+    <div class="bottom-right-icon">
+        <a href="./Part2/index.html" class="icon-text">From Positive to Negative</a>
+        <img src="right_arrow.png" alt="Right Arrow" />
+    </div>
+
+</body>
+
+</html>
