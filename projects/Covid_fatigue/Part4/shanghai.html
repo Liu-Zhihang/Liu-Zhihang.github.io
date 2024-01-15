@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <!-- 引入 ECharts 文件 -->
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.0/dist/echarts.min.js"></script>
+    <script src="./js/echarts.js"></script>
 
     <style type="text/css">
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
@@ -136,12 +137,6 @@
             white-space: nowrap;
         }
 
-        .chart-container {
-            display: flex;
-            align-items: stretch;
-            /* 确保容器高度一致 */
-        }
-
         #stacked_chart {
             flex-grow: 2;
             /* 占据更多空间 */
@@ -150,7 +145,7 @@
         #pie_chart {
             position: absolute;
             /* 绝对定位 */
-            top: 65%;
+            top: 45%;
             /* 垂直居中 */
             left: 0;
             /* 置于左侧 */
@@ -164,12 +159,13 @@
 
 <body style="height: 100%;">
     <div class="top-right-title">
-        Public topic changes for Shanghai COVID-19 (weekly)
+        From Virus to Side Effects: The Change in Public Focus
     </div>
     <div style="height:60%; top: 60px; position: relative;">
         <div id="stacked_chart" style="height: 100%;"></div> <!-- 堆积图容器 -->
         <div id="pie_chart" style="position: absolute;  left: 0; width: 30%; height: 100%;"></div> <!-- 饼图容器 -->
     </div>
+
     <div class="sidebar">
         <!-- 文本容器 -->
         <div id="text-content">
@@ -188,15 +184,22 @@
         var stacked_chart = echarts.init(document.getElementById('stacked_chart'));
         var pie_chart = echarts.init(document.getElementById('pie_chart'))
 
+
         // 指定图表的配置项和数据
         option = {
             backgroundColor: 'rgba(48, 48, 48, 1)',
             animationDuration: 10000,
             color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00', '#00DDFF', '#800080', '#FF4500', '#00FFFF', '#ADFF2F', '#FFB6C1', '#696969',],
             title: {
-                text: '',
-                top: 'bottom',
-                left: 'center'
+                text: 'Public topic changes for Shanghai COVID-19 (weekly)',
+                top: '30%',
+                right: '20%',
+                textStyle: {
+                    fontSize: '28px',
+                    fontFamily: 'Times New Roman',
+                    color: 'white'
+
+                }
             },
             tooltip: {
                 trigger: 'axis',
@@ -234,6 +237,9 @@
             },
             xAxis: [
                 {
+                    // textStyle: {
+                    //     color: 'white'
+                    // },
                     type: 'category',
                     boundaryGap: false,
                     data: ['2022-02-27',
@@ -462,13 +468,14 @@
             ]
         };
 
-        option && myChart.setOption(option);
+        option && stacked_chart.setOption(option);
 
         option_pie = {
             title: {
                 text: 'The dominant topics discussed on Weibo about COVID-19 in Shanghai',
                 // subtext: 'Fake Data',
                 left: 'center',
+                top: '15%', 
                 textStyle: {
                     color: 'white',
                     fontFamily: 'Times New Roman',
@@ -513,6 +520,41 @@
         };
 
         option_pie && pie_chart.setOption(option_pie);
+    </script>
+
+
+
+    <script>
+        const textParagraphs = [
+            'During Shanghai\'s pandemic, public focus shifted notably from Wuhan\'s experience. Post-lockdown, concerns about basic supplies surged, especially for "living goods." As restrictions eased, attention turned to resuming normal life, with increased <span class="highlight">anxiety and emotional stress</span>.',
+            'The prominent "Lockdown news & Mental health" theme highlights deep worries about the lockdown\'s length and its mental health impact. This led to increased <span class="highlight">social discontent</span> in Shanghai, linked to heightened <span class="highlight">pandemic fatigue</span>.',
+            'The public\'s focus shifted from initial concerns about the virus\'s harm to the negative externalities arising from containment policies and the emergence of "<span class="highlight">pandemic fatigue</span>" This fostered distrust towards the government, conspiracy beliefs, and support for protest activities, <span class="highlight">driving potential policy shifts in response to the changing public sentiment</span>.'
+        ];
+        let currentParagraphIndex = 0;
+
+        function updateTextContent() {
+            const textContent = document.getElementById('text-content');
+            textContent.innerHTML = textParagraphs[currentParagraphIndex]; // 使用 innerHTML 来解析 HTML 标签
+        }
+
+        document.getElementById('prev-button').addEventListener('click', () => {
+            if (currentParagraphIndex > 0) {
+                currentParagraphIndex--;
+                updateTextContent();
+            }
+        });
+
+        document.getElementById('next-button').addEventListener('click', () => {
+            if (currentParagraphIndex < textParagraphs.length - 1) {
+                currentParagraphIndex++;
+                updateTextContent();
+            } else {
+                // 当已经是最后一段文本时，再次点击跳转到指定页面
+                window.location.href = '../Part5/index.html';
+            }
+        });
+        // 初始化显示第一个段落
+        updateTextContent();
     </script>
 </body>
 
