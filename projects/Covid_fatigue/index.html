@@ -12,16 +12,18 @@
             position: fixed;
             right: 0;
             bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
+            width: 100%;
+            /* 宽度设为100% */
+            height: 100%;
+            /* 高度设为100% */
             z-index: -100;
-            background-size: cover;
             overflow: hidden;
             opacity: 1;
             /* 调整视频透明度 */
+            object-fit: cover;
+            /* 保持视频的原始比例，同时覆盖整个容器 */
         }
+
 
         /* 图表容器样式 */
         #main {
