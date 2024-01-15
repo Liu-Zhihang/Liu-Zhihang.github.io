@@ -76,23 +76,75 @@
         /* 左侧文本框样式 */
         .sidebar {
           position: absolute;
-          /* 使用绝对定位 */
           width: 25%;
           height: 80%;
           top: 10%;
-          /* 调整为所需位置 */
           left: 5%;
-          /* 调整为所需位置 */
           padding: 20px;
           box-sizing: border-box;
           color: white;
           overflow: auto;
           background-color: rgba(255, 255, 255, 0.2);
-          /* 设置透明背景 */
           border: 2px solid rgba(255, 255, 255, 0.5);
           box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.5);
           z-index: 10;
-          /* 确保文本框在地图之上 */
+
+          /* 新增样式用于文本水平垂直居中对齐 */
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: left;
+          font-family: 'Times New Roman', serif;
+          /* 使用 Times New Roman 字体 */
+          font-weight: bold;
+          font-size: 28px;
+          /* 文本加粗 */
+        }
+
+        /* 段落文本样式 */
+        .text-paragraph {
+          margin-bottom: 20px;
+          /* 段落间距 */
+        }
+
+        /* 标红文本样式 */
+        .highlight {
+          color: rgb(237, 42, 98);
+          /* 标红文本 */
+        }
+
+        /* 导航按钮样式 */
+        .navigation-buttons {
+          align-self: stretch;
+          text-align: center;
+          margin-top: 40px;
+          /* 按钮与文本间的间距 */
+        }
+
+        .navigation-buttons button {
+          margin: 0 10px;
+          background: transparent;
+          /* 设置背景为透明 */
+          border: 2px solid white;
+          /* 保留白色边框 */
+          font-family: 'Roboto Mono', monospace;
+          /* 设置字体为 Roboto Mono */
+          font-size: 14px;
+          /* 设置字体大小为 14px */
+          color: white;
+          /* 设置字体颜色为白色 */
+          padding: 5px 10px;
+          /* 设置内边距 */
+          cursor: pointer;
+          /* 设置鼠标悬停时的光标样式 */
+          transition: background-color 0.3s;
+          /* 平滑过渡效果 */
+        }
+
+        .navigation-buttons button:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+          /* 鼠标悬停时的背景色 */
         }
 
         .charts-container {
@@ -111,7 +163,7 @@
 
         /* 单个图表样式 */
         .chart {
-          width: 800px;
+          width: 600px;
           height: 500px;
           margin-bottom: 20px;
           /* 为每个图表添加下边距 */
@@ -244,13 +296,13 @@
   </div>
 
     <!-- 底部注释元素 -->
-  <div class="bottom-right-icon">
-      <a href="../Part4/index.html" class="icon-text">From Virus to Side Effects</a>
-      <img src="../assets/right_arrow.png" alt="Right Arrow" />
-  </div>
+  <!-- <div class="bottom-right-icon">
+      <a href="您的链接地址" class="icon-text">From Positive to Negative</a>
+      <img src="right_arrow.png" alt="Right Arrow" />
+  </div> -->
 
   <div class="top-right-title">
-    From Virus to Side Effects: The Change in Public Focus
+    From Positive to Negative: The Shift in Public Sentiment
   </div>
 
 
@@ -266,10 +318,17 @@
   </div>
 
   <div class="sidebar">
-    <!-- 这里放置您的文本和其他内容 -->
-    <p>这里是一些文本...</p>
+    <!-- 文本容器 -->
+    <div id="text-content">
+      <!-- 动态文本将在这里显示 -->
+    </div>
+
+    <!-- 导航按钮 -->
+    <div class="navigation-buttons">
+      <button id="prev-button">Previous</button>
+      <button id="next-button">Next</button>
+    </div>
   </div>
-  <!-- Load our React component. -->
 
   <div class="charts-container">
     <div id="chart_wh" class="chart"></div>
@@ -1117,7 +1176,65 @@
         buttons[0].click(); // 模拟点击第一个找到的元素
       }
     });
+
+    document.addEventListener("DOMContentLoaded", function() {
+  var checkExist = setInterval(function() {
+    // 选择播放按钮
+    var playButton = document.querySelector('#kepler-gl__map > div.sc-dYzWWc.gYOORD > div > div > div.time-range-slider > div > div.playback-controls.sc-feJyhm.vzhPC > button:nth-child(1)');
+    
+    // 选择要删除的控件
+    var controlsToRemove = document.querySelector('#kepler-gl__map > div.sc-dYzWWc.gYOORD');
+
+    if (playButton && controlsToRemove) {
+      clearInterval(checkExist); // 找到元素后清除定时器
+
+      // 触发播放按钮的点击事件以实现自动播放
+      playButton.click();
+
+      // 隐藏或删除控件
+      controlsToRemove.style.display = 'none'; // 隐藏控件
+      // 如果需要完全删除控件，取消下行注释
+      // controlsToRemove.parentNode.removeChild(controlsToRemove);
+    }
+  }, 100); // 每100毫秒检查一次元素是否存在
+});
   </script>
+
+  
+<script>
+  const textParagraphs = [
+    'During Shanghai\'s pandemic, public sentiment declined thrice: first,  with the city lockdown on March 28, 2022, <span class="highlight">contrasting Wuhan\'s positive reaction to similar policies</span>; second, on April 22, following the announcement of a more aggressive  zero-COVID policy.',
+    'The last sentiment decline was on May 16, 2022, due to phased reopening  rather than full reopening and frequent COVID-19 testing, indicating growing public <span class="highlight">pandemic fatigue</span>.',
+    'WHO highlights <span class="highlight">"pandemic fatigue"</span> as a key psychological effect during COVID-19 pandemic, warning that this fatigue could weaken the  enthusiasm to comply with health-related policies.',
+    'Through the comparison of the two cities, due to the prolonged impact of  the pandemic, public sentiment shifted from initial positive support to  increasingly negative reactions towards containment policies. This  indicates a shift in <span class="highlight">public focus</span>.'
+  ];
+  let currentParagraphIndex = 0;
+
+  function updateTextContent() {
+    const textContent = document.getElementById('text-content');
+    textContent.innerHTML = textParagraphs[currentParagraphIndex]; // 使用 innerHTML 来解析 HTML 标签
+  }
+
+  document.getElementById('prev-button').addEventListener('click', () => {
+    if (currentParagraphIndex > 0) {
+      currentParagraphIndex--;
+      updateTextContent();
+    }
+  });
+
+  document.getElementById('next-button').addEventListener('click', () => {
+    if (currentParagraphIndex < textParagraphs.length - 1) {
+      currentParagraphIndex++;
+      updateTextContent();
+    } else {
+      // 当已经是最后一段文本时，再次点击跳转到指定页面
+      window.location.href = '../Part3/index.html';
+    }
+  });
+  // 初始化显示第一个段落
+  updateTextContent();
+</script>
+
 </body>
 
 </html>
