@@ -148,8 +148,16 @@
         }
 
         #pie_chart {
-            flex-grow: 1;
-            /* 占据较少空间 */
+            position: absolute;
+            /* 绝对定位 */
+            top: 65%;
+            /* 垂直居中 */
+            left: 0;
+            /* 置于左侧 */
+            transform: translateY(-50%);
+            width: 30%;
+            height: auto;
+            z-index: 10;
         }
     </style>
 </head>
@@ -159,8 +167,8 @@
         Public topic changes for Shanghai COVID-19 (weekly)
     </div>
     <div style="height:60%; top: 60px; position: relative;">
-        <div id="stacked_chart" style="flex: 1; height: 100%;"></div> <!-- 堆积图容器 -->
-        <div id="pie_chart" style="flex: 0 0 30%; height: 100%;"></div> <!-- 饼图容器 -->
+        <div id="stacked_chart" style="height: 100%;"></div> <!-- 堆积图容器 -->
+        <div id="pie_chart" style="position: absolute;  left: 0; width: 30%; height: 100%;"></div> <!-- 饼图容器 -->
     </div>
     <div class="sidebar">
         <!-- 文本容器 -->
@@ -455,6 +463,56 @@
         };
 
         option && myChart.setOption(option);
+
+        option_pie = {
+            title: {
+                text: 'The dominant topics discussed on Weibo about COVID-19 in Shanghai',
+                // subtext: 'Fake Data',
+                left: 'center',
+                textStyle: {
+                    color: 'white',
+                    fontFamily: 'Times New Roman',
+                    fontSize: '14px'
+                }
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                show: false,
+                orient: 'vertical',
+                left: 'left'
+            },
+            series: [
+                {
+                    name: 'Topic ',
+                    type: 'pie',
+                    radius: '50%',
+                    data: [{
+                        "value": 0.393, 'name': 'Containment and closure policies'
+                    },
+                    { 'value': 0.406, 'name': 'Lockdown news & Mental Health' },
+                    {
+                        'value': 0.149,
+                        'name': 'Living goods'
+                    },
+                    {
+                        'value': 0.053,
+                        'name': 'counts of cases and deaths'
+                    }
+                    ],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+
+        option_pie && pie_chart.setOption(option_pie);
     </script>
 </body>
 
