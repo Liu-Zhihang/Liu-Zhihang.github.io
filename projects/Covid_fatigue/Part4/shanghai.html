@@ -135,6 +135,22 @@
             /* 最大宽度限制 */
             white-space: nowrap;
         }
+
+        .chart-container {
+            display: flex;
+            align-items: stretch;
+            /* 确保容器高度一致 */
+        }
+
+        #stacked_chart {
+            flex-grow: 2;
+            /* 占据更多空间 */
+        }
+
+        #pie_chart {
+            flex-grow: 1;
+            /* 占据较少空间 */
+        }
     </style>
 </head>
 
@@ -143,11 +159,16 @@
         Public topic changes for Shanghai COVID-19 (weekly)
     </div>
     <div style="height:60%; top: 60px; position: relative;">
-        <div id="skill_network" style="height:100%;"></div>
+        <div id="stacked_chart" style="flex: 1; height: 100%;"></div> <!-- 堆积图容器 -->
+        <div id="pie_chart" style="flex: 0 0 30%; height: 100%;"></div> <!-- 饼图容器 -->
     </div>
     <div class="sidebar">
-        <!-- 交互性文本内容放在这里 -->
-        <div class="text-paragraph">这里是一些文本...</div>
+        <!-- 文本容器 -->
+        <div id="text-content">
+            <!-- 动态文本将在这里显示 -->
+        </div>
+
+        <!-- 导航按钮 -->
         <div class="navigation-buttons">
             <button id="prev-button">Previous</button>
             <button id="next-button">Next</button>
@@ -156,8 +177,8 @@
 
     <script type="text/javascript">
         // 初始化图表时设置style
-        var myChart = echarts.init(document.getElementById('skill_network'));
-
+        var stacked_chart = echarts.init(document.getElementById('stacked_chart'));
+        var pie_chart = echarts.init(document.getElementById('pie_chart'))
 
         // 指定图表的配置项和数据
         option = {
@@ -429,7 +450,7 @@
                     },
                     data: [14, 50, 79, 86, 122, 175, 163, 90, 79, 64, 211, 407, 148]
                 },
-                
+
             ]
         };
 
