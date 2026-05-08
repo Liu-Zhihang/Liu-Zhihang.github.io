@@ -64,8 +64,8 @@
     "Modern Dynamics": { x: coreColumnLeft + coreLeftShiftX + coreGlobalShiftX - 30, y: coreSpacing * 0.3 * coreYSign + coreLeftShiftY + 15 + coreGlobalShiftY + coreMidExtraUp - coreOnlyShiftDown },
     "Swarm Robotics": { x: coreColumnRight + coreRightShiftX - 30 + coreGlobalShiftX, y: coreSpacing * 1.6 * coreYSign + coreGlobalShiftY - coreOnlyShiftDown },
     "General Swarm Intelligence": { x: coreGsiX, y: coreSpacing * 2.6 * coreYSign + coreGlobalShiftY + coreGsiDown - coreOnlyShiftDown },
-    "Physics-Informed Spatial Intelligence": { x: coreGsiX, y: coreSpacing * 0.8 * coreYSign + coreGlobalShiftY + coreGsiDown - coreOnlyShiftDown },
-    "Physical AI": { x: coreGsiX + 125, y: coreSpacing * 0.8 * coreYSign + coreGlobalShiftY + coreGsiDown - coreOnlyShiftDown + 6 }
+    "Physics-Informed Spatial Intelligence": { x: coreGsiX, y: coreSpacing * 0.8 * coreYSign + coreGlobalShiftY + coreGsiDown - coreOnlyShiftDown, z: -28 },
+    "Physical AI": { x: coreGsiX + 55, y: coreSpacing * 0.8 * coreYSign + coreGlobalShiftY + coreGsiDown - coreOnlyShiftDown + 6, z: -28 }
   };
   var coreTargets = coreIds.map(function (id) { return coreTargetPos[id] || { x: coreX, y: 0 }; });
   var coreXValues = coreTargets.map(function (pos) { return pos.x; });
@@ -105,11 +105,11 @@
       var target = coreTargetPos[id] || { x: coreX, y: 0 };
       node.x = target.x;
       node.y = target.y;
-      node.z = 0;
+      node.z = target.z || 0;
       node.fx = target.x;
       node.fy = target.y;
-      node.fz = 0;
-      corePositions[id] = { x: node.x, y: node.y, z: 0 };
+      node.fz = target.z || 0;
+      corePositions[id] = { x: node.x, y: node.y, z: node.z };
     });
 
     var anchors = [];
@@ -340,7 +340,7 @@
           node.fx = target.x;
           node.fy = target.y;
           var idx = coreIds.indexOf(node.id);
-          node.fz = (idx % 2 === 0 ? 1 : -1) * 28;
+          node.fz = typeof target.z === "number" ? target.z : (idx % 2 === 0 ? 1 : -1) * 28;
         });
       }
       var centerForce = graph.d3Force("center");
