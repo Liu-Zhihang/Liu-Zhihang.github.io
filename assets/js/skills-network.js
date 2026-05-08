@@ -65,7 +65,7 @@
     "Swarm Robotics": { x: coreColumnRight + coreRightShiftX - 30 + coreGlobalShiftX, y: coreSpacing * 1.6 * coreYSign + coreGlobalShiftY - coreOnlyShiftDown },
     "General Swarm Intelligence": { x: coreGsiX, y: coreSpacing * 2.6 * coreYSign + coreGlobalShiftY + coreGsiDown - coreOnlyShiftDown },
     "Physics-Informed Spatial Intelligence": { x: coreGsiX, y: coreSpacing * 0.8 * coreYSign + coreGlobalShiftY + coreGsiDown - coreOnlyShiftDown, z: -28 },
-    "Physical AI": { x: coreGsiX + 55, y: coreSpacing * 0.8 * coreYSign + coreGlobalShiftY + coreGsiDown - coreOnlyShiftDown + 6, z: -28 }
+    "Physical AI": { x: coreGsiX + 18, y: coreSpacing * 0.8 * coreYSign + coreGlobalShiftY + coreGsiDown - coreOnlyShiftDown + 6, z: -48 }
   };
   var coreTargets = coreIds.map(function (id) { return coreTargetPos[id] || { x: coreX, y: 0 }; });
   var coreXValues = coreTargets.map(function (pos) { return pos.x; });
@@ -122,9 +122,9 @@
       if (!coreId || !anchor) {
         return;
       }
-      node.x = anchor.x - 70 + (Math.random() - 0.5) * 120;
-      node.y = anchor.y + (Math.random() - 0.5) * 90;
-      node.z = (Math.random() - 0.5) * 70;
+      node.x = anchor.x - 30 + (Math.random() - 0.5) * 90;
+      node.y = anchor.y + (Math.random() - 0.5) * 70;
+      node.z = (Math.random() - 0.5) * 50;
       anchors.push({ source: node.id, target: coreId, __anchor: true });
     });
 
@@ -274,10 +274,10 @@
 
     graph.d3Force("charge").strength(-160);
     graph.d3Force("link").distance(function (link) {
-      return link.__anchor ? 55 : 90;
+      return link.__anchor ? 46 : 76;
     });
     graph.d3Force("link").strength(function (link) {
-      return link.__anchor ? 0.9 : 0.4;
+      return link.__anchor ? 1.05 : 0.5;
     });
     var centerForce = graph.d3Force("center");
     if (centerForce && typeof centerForce.x === "function") {
