@@ -65,7 +65,7 @@
     "Swarm Robotics": { x: coreColumnRight + coreRightShiftX - 30 + coreGlobalShiftX, y: coreSpacing * 1.6 * coreYSign + coreGlobalShiftY - coreOnlyShiftDown },
     "General Swarm Intelligence": { x: coreGsiX, y: coreSpacing * 2.6 * coreYSign + coreGlobalShiftY + coreGsiDown - coreOnlyShiftDown },
     "Physics-Informed Spatial Intelligence": { x: coreGsiX, y: coreSpacing * 0.8 * coreYSign + coreGlobalShiftY + coreGsiDown - coreOnlyShiftDown, z: -28 },
-    "Physical AI": { x: coreGsiX + 18, y: coreSpacing * 0.8 * coreYSign + coreGlobalShiftY + coreGsiDown - coreOnlyShiftDown + 36, z: -48 }
+    "Physical AI": { x: coreGsiX + 38, y: coreSpacing * 0.8 * coreYSign + coreGlobalShiftY + coreGsiDown - coreOnlyShiftDown + 54, z: -48 }
   };
   var coreTargets = coreIds.map(function (id) { return coreTargetPos[id] || { x: coreX, y: 0 }; });
   var coreXValues = coreTargets.map(function (pos) { return pos.x; });
