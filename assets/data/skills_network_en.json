@@ -31,6 +31,11 @@
       "val": 46
     },
     {
+      "id": "Physical AI",
+      "group": "core",
+      "val": 46
+    },
+    {
       "id": "Computer",
       "group": "software",
       "val": 14
@@ -603,6 +608,26 @@
     {
       "source": "Physics-Informed Spatial Intelligence",
       "target": "Physics-Informed Deep Learning"
+    },
+    {
+      "source": "Physical AI",
+      "target": "Physics-Informed Spatial Intelligence"
+    },
+    {
+      "source": "Physical AI",
+      "target": "General Swarm Intelligence"
+    },
+    {
+      "source": "Physical AI",
+      "target": "Swarm Robotics"
+    },
+    {
+      "source": "Physical AI",
+      "target": "Physics-Informed Deep Learning"
+    },
+    {
+      "source": "Physical AI",
+      "target": "Spatial Intelligence"
     },
     {
       "source": "Swarm Control",

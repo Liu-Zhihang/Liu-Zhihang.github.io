@@ -20,7 +20,8 @@
     "Modern Dynamics",
     "Swarm Robotics",
     "General Swarm Intelligence",
-    "Physics-Informed Spatial Intelligence"
+    "Physics-Informed Spatial Intelligence",
+    "Physical AI"
   ];
   var coreTopIds = [
     "Non-equilibrium Physics",
@@ -30,7 +31,8 @@
   var coreBottomIds = [
     "Swarm Robotics",
     "General Swarm Intelligence",
-    "Physics-Informed Spatial Intelligence"
+    "Physics-Informed Spatial Intelligence",
+    "Physical AI"
   ];
   var groupCoreMap = {
     software: "Modern Dynamics",
@@ -62,7 +64,8 @@
     "Modern Dynamics": { x: coreColumnLeft + coreLeftShiftX + coreGlobalShiftX - 30, y: coreSpacing * 0.3 * coreYSign + coreLeftShiftY + 15 + coreGlobalShiftY + coreMidExtraUp - coreOnlyShiftDown },
     "Swarm Robotics": { x: coreColumnRight + coreRightShiftX - 30 + coreGlobalShiftX, y: coreSpacing * 1.6 * coreYSign + coreGlobalShiftY - coreOnlyShiftDown },
     "General Swarm Intelligence": { x: coreGsiX, y: coreSpacing * 2.6 * coreYSign + coreGlobalShiftY + coreGsiDown - coreOnlyShiftDown },
-    "Physics-Informed Spatial Intelligence": { x: coreGsiX, y: coreSpacing * 0.8 * coreYSign + coreGlobalShiftY + coreGsiDown - coreOnlyShiftDown }
+    "Physics-Informed Spatial Intelligence": { x: coreGsiX, y: coreSpacing * 0.8 * coreYSign + coreGlobalShiftY + coreGsiDown - coreOnlyShiftDown },
+    "Physical AI": { x: coreGsiX + 125, y: coreSpacing * 0.8 * coreYSign + coreGlobalShiftY + coreGsiDown - coreOnlyShiftDown + 6 }
   };
   var coreTargets = coreIds.map(function (id) { return coreTargetPos[id] || { x: coreX, y: 0 }; });
   var coreXValues = coreTargets.map(function (pos) { return pos.x; });
