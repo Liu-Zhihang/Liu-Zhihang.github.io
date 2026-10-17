@@ -20,6 +20,9 @@
       font-size:1.05rem;
       line-height:1.7;
     }
+    .container{
+      max-width: 800px;
+    }
     .back-link{ margin-bottom:24px; }
     .back-link a{ color:var(--muted); text-decoration:none; }
     .back-link a:hover{ color:var(--text); }
@@ -36,12 +39,12 @@
       font-size:1.85rem;
       font-weight:600;
       line-height:1.35;
-      margin:1.25rem auto 0.75rem;
-      max-width: var(--content-max);
+      margin:1.25rem 0 0.75rem;
+      max-width: 100%;
     }
     p.opening{
-      max-width: var(--content-max);
-      margin: 0 auto 0.9rem;
+      max-width: 100%;
+      margin: 0 0 0.9rem;
       color: var(--text);
       font-size: 1.05rem;
       font-weight: 400;
@@ -50,14 +53,14 @@
     .section-head{
       font-size:1.25rem;
       font-weight:600;
-      margin:2.25rem auto 1rem;
+      margin:2.25rem 0 1rem;
       padding-bottom:0.35rem;
       border-bottom:1px solid var(--border);
-      max-width: var(--content-max);
+      max-width: 100%;
     }
     .content-block{
-      max-width: var(--content-max);
-      margin: 0 auto;
+      max-width: 100%;
+      margin: 0;
     }
     .content-block p{ margin: 0 0 0.9rem; }
     .content-block h3{
@@ -67,15 +70,15 @@
     }
     .figure{
       width: 100%;
-      max-width: var(--content-max);
-      margin: 1rem auto 1.35rem;
+      max-width: 100%;
+      margin: 1rem 0 1.35rem;
       text-align: center;
     }
     .figure img,
     .figure video,
     img.cover{
-      width: auto;
-      max-width: min(100%, var(--content-max));
+      width: 100%;
+      max-width: 100%;
       height: auto;
       display: block;
       margin-left: auto;
@@ -90,15 +93,15 @@
       text-align: center;
     }
     .video-figure{ text-align:center; }
-    .table-wrap{ overflow-x:auto; margin: 1rem auto 1.25rem; max-width: var(--content-max); }
+    .table-wrap{ overflow-x:auto; margin: 1rem 0 1.25rem; max-width: 100%; }
     .table-wrap table{ width:100%; border-collapse:collapse; font-size:0.95rem; }
     .table-wrap th, .table-wrap td{ border:1px solid var(--border); padding:10px 14px; text-align:left; }
     .table-wrap th{ background: rgba(0,0,0,0.04); }
     .refs{ font-size:0.95rem; }
     .refs a{ color: inherit; }
     .footer-link{
-      max-width: var(--content-max);
-      margin: 2.5rem auto 0;
+      max-width: 100%;
+      margin: 2.5rem 0 0;
       padding-top: 1rem;
       border-top: 1px solid var(--border);
     }
@@ -174,7 +177,7 @@
         </tbody>
       </table>
     </div>
-    <div class="row img-row justify-content-center" style="max-width:980px;margin:1rem auto 1.25rem;">
+    <div class="row img-row justify-content-center" style="max-width:100%;margin:1rem 0 1.25rem;">
       <div class="col-md-6" style="margin-bottom:0.75rem;"><img src="../../assets/images/evt1_front.jpg" alt="EVT-1 from the front" style="width:100%;border-radius:10px;display:block;margin:0 auto;"></div>
       <div class="col-md-6" style="margin-bottom:0.75rem;"><img src="../../assets/images/evt1_rear.png" alt="EVT-1 from the rear" style="width:100%;border-radius:10px;display:block;margin:0 auto;background:#111;"></div>
     </div>
