@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EVT-1: An Indoor Autonomous Drone with Stereo Vision</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <style>
+    :root{
+      --text:#1a1d24;
+      --muted:#5c6370;
+      --border:#e2e6ea;
+      --bg:#f7f8fb;
+      --content-max: 980px;
+    }
+    body{
+      padding:28px 0 64px;
+      background:var(--bg);
+      color:var(--text);
+      font-size:1.05rem;
+      line-height:1.7;
+    }
+    .back-link{ margin-bottom:24px; }
+    .back-link a{ color:var(--muted); text-decoration:none; }
+    .back-link a:hover{ color:var(--text); }
+    .cover{
+      width:100%;
+      max-width: var(--content-max);
+      height:auto;
+      display:block;
+      margin:0 auto 0.6rem;
+      border-radius:12px;
+      background:#050505;
+      box-shadow:0 8px 28px rgba(0,0,0,0.18);
+    }
+    .project-title{
+      font-size:1.85rem;
+      font-weight:600;
+      line-height:1.35;
+      margin:1.25rem auto 0.75rem;
+      max-width: var(--content-max);
+    }
+    .lead{
+      font-size:1.05rem;
+      color:var(--text);
+      margin:0 auto 0.9rem;
+      max-width: var(--content-max);
+      line-height:1.7;
+    }
+    .section-head{
+      font-size:1.25rem;
+      font-weight:600;
+      margin:2.25rem auto 1rem;
+      padding-bottom:0.35rem;
+      border-bottom:1px solid var(--border);
+      max-width: var(--content-max);
+    }
+    .content-block{
+      max-width: var(--content-max);
+      margin: 0 auto;
+    }
+    .content-block p{ margin: 0 0 0.9rem; }
+    .content-block h3{
+      font-size:1.05rem;
+      font-weight:600;
+      margin:1.1rem 0 0.35rem;
+    }
+    .figure{
+      width: 100%;
+      max-width: var(--content-max);
+      margin: 1rem auto 1.35rem;
+      text-align: center;
+    }
+    .figure img, .figure video, .cover{
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 10px;
+    }
+    .figure video{
+      width: 100%;
+    }
+    .figure figcaption, .caption{
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 0.45rem;
+      text-align: center;
+    }
+    .video-figure{ text-align:center; }
+    .table-wrap{ overflow-x:auto; margin: 1rem auto 1.25rem; max-width: var(--content-max); }
+    .table-wrap table{ width:100%; border-collapse:collapse; font-size:0.95rem; }
+    .table-wrap th, .table-wrap td{ border:1px solid var(--border); padding:10px 14px; text-align:left; }
+    .table-wrap th{ background: rgba(0,0,0,0.04); }
+    .refs{ font-size:0.95rem; }
+    .refs a{ color: inherit; }
+    .footer-link{
+      max-width: var(--content-max);
+      margin: 2.5rem auto 0;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .footer-link a{ color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="back-link">
+      <a href="https://zhihangliu.cn/#research">&larr; Back to Research</a>
+    </div>
+
+    <img class="cover" src="../../assets/images/evt1_local_to_swarm.png" alt="EVT-1 from several angles">
+    <p class="caption">EVT-1 from several angles.</p>
+
+    <h1 class="project-title">EVT-1: An Indoor Autonomous Drone with Stereo Vision</h1>
+    <p class="lead">On the path toward general swarm intelligence, the drone is currently the most mature of the candidate testbeds, so we are building that one first. EVT-1 is an autonomous stereo-vision drone now being assembled at Evolution Tech. In corridors and laboratories without satellite positioning, it must first take off, hold a stable hover, and avoid obstacles. This single aircraft is not meant for formation displays. It is the sensing and decision-making entry point for the swarm-intelligence experiments that follow.</p>
+    <p class="lead">Formation flight, obstacle avoidance, and slung-load transport are tasks, not the result. The platform must let us switch, for each vehicle, three information channels on or off: local vision, wireless communication, and physical coupling through the cables and the payload. We ask how much collective decision-making remains once explicit communication is removed, whether the three channels can stand in for one another, and whether more aircraft and more information can make the collective judgment worse.</p>
+
+    <figure class="figure video-figure">
+      <video src="../../assets/images/evt1_flight.mp4" controls playsinline></video>
+      <figcaption>EVT-1 flying indoors.</figcaption>
+    </figure>
+
+    <h2 class="section-head">The question</h2>
+    <div class="content-block">
+      <p>Recent work has tightened one requirement: perception, localization, and decisions have to be made on the aircraft, not handed to a ground station or a motion-capture room.</p>
+      <p>In 2018, Vásárhelyi et al. applied local rules to autonomous swarm flight in bounded spaces with obstacles.<a href="#ref1">[1]</a> Coordination had to finish within a limited time. External positioning, available then, was not where the problem ended.</p>
+    </div>
+    <figure class="figure">
+      <img src="../../assets/images/evt1_scirobotics_2018.png" alt="Autonomous swarm flight in a bounded environment">
+      <figcaption>Autonomous swarm flight in a bounded environment. Source: Vásárhelyi et al., <em>Science Robotics</em>, 2018. <a href="https://doi.org/10.1126/scirobotics.aat3536">https://doi.org/10.1126/scirobotics.aat3536</a></figcaption>
+    </figure>
+    <div class="content-block">
+      <p>In 2022, Zhou et al. showed outdoor multi-robot flight supported by onboard sensing, localization, planning, and communication between aircraft.<a href="#ref2">[2]</a> The hard part was not a trajectory drawn in advance. Each aircraft had to observe and compute for itself, and stay aligned in time with its neighbors.</p>
+    </div>
+    <figure class="figure">
+      <img src="../../assets/images/evt1_scirobotics_2022.jpg" alt="Multi-robot flight outdoors">
+      <figcaption>Multi-robot flight outdoors. Source: Zhou et al., <em>Science Robotics</em>, 2022. <a href="https://doi.org/10.1126/scirobotics.abm5954">https://doi.org/10.1126/scirobotics.abm5954</a></figcaption>
+    </figure>
+    <div class="content-block">
+      <p>In 2025, Zhang et al. trained vision-based flight policies with differentiable physics, and discussed multi-robot flight without explicit inter-robot communication or a central plan.<a href="#ref3">[3]</a> High-speed flight by one aircraft and cooperation among several are different experiments. Their performance limits should not be mixed.</p>
+    </div>
+    <figure class="figure">
+      <img src="../../assets/images/evt1_nmi_2025.jpg" alt="Vision-based agile flight with an onboard depth camera">
+      <figcaption>Vision-based agile flight with an onboard depth camera. Source: Zhang et al., <em>Nature Machine Intelligence</em>, 2025. <a href="https://doi.org/10.1038/s42256-025-01048-0">https://doi.org/10.1038/s42256-025-01048-0</a></figcaption>
+    </figure>
+    <div class="content-block">
+      <p>These papers show that flight can be done onboard, and that continuous communication between aircraft is not required for navigation. They have not, on one set of aircraft, deleted vision, radio, and physical coupling one channel at a time, and watched collective behavior pass from coherent to oscillatory and then to fragmented. That is what the swarm-intelligence experiments on EVT-1 are for. Hover, depth, and obstacle avoidance on a single aircraft only ensure that, after a channel is removed, what remains can still fly.</p>
+    </div>
+
+    <h2 class="section-head">Platform</h2>
+    <div class="content-block">
+      <p>The prototype is for corridors, laboratories, and other tight indoor spaces. The wheelbase is about 136 mm and the takeoff mass about 800 g. It uses 3.5-inch propellers with guards. An Intel RealSense D435 looks forward. An optical-flow and ranging module stabilizes the aircraft near the ground, and stereo depth supplies the geometry of the space around it. The flight controller runs PX4. The onboard computer is an NVIDIA Jetson Orin, with Ubuntu and ROS above it.</p>
+      <p>The airframe is our own. The mid-plate carries the camera and the motors. The guards enclose the propeller disks. The bottom plate faces the optical-flow sensor downward, and the top plate holds the computer. The flight controller is mounted upside down, with the SD card facing out. Optical flow is on GPS1. The telemetry radio and the receiver are on Telem1. The onboard computer is on Telem2.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Item</th><th>EVT-1</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Wheelbase</td><td>About 136 mm</td></tr>
+          <tr><td>Takeoff mass</td><td>About 800 g</td></tr>
+          <tr><td>Propellers</td><td>Qianfeng D90s-3, 3.5 inch, two pairs, with guards</td></tr>
+          <tr><td>Motors</td><td>Tianlang 2006, 1960 KV × 4</td></tr>
+          <tr><td>Flight controller</td><td>MicoAir H743v2 AIO 35A, PX4</td></tr>
+          <tr><td>Receiver</td><td>ELRS</td></tr>
+          <tr><td>Telemetry</td><td>MicoAir LR24 (LR24-F and F-Mini)</td></tr>
+          <tr><td>Near-ground sensing</td><td>MicoAir MTF-02P optical-flow and ranging module</td></tr>
+          <tr><td>Forward vision</td><td>Intel RealSense D435</td></tr>
+          <tr><td>Onboard computer</td><td>NVIDIA Jetson Orin, Ubuntu and ROS</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row img-row justify-content-center" style="max-width:980px;margin:1rem auto 1.25rem;">
+      <div class="col-md-6" style="margin-bottom:0.75rem;"><img src="../../assets/images/evt1_front.jpg" alt="EVT-1 from the front" style="width:100%;border-radius:10px;display:block;margin:0 auto;"></div>
+      <div class="col-md-6" style="margin-bottom:0.75rem;"><img src="../../assets/images/evt1_rear.png" alt="EVT-1 from the rear" style="width:100%;border-radius:10px;display:block;margin:0 auto;background:#111;"></div>
+    </div>
+    <p class="caption">Left: propeller guards, forward-facing D435, and the computer above. Right: onboard computer, battery, and power leads.</p>
+
+    <h2 class="section-head">What it can do now</h2>
+    <div class="content-block">
+      <p>Three minimal things now work reliably. They are what we need before we can remove an information channel. They are not the collective result we intend to report.</p>
+      <h3>Indoor takeoff, and position hold with optical flow</h3>
+      <p>Without satellites, the aircraft first has to keep itself inside a limited volume. The MTF-02P provides optical flow and range near the ground. The flight controller uses both to hold a hover.</p>
+      <h3>Onboard depth</h3>
+      <p>The D435 returns forward depth. An obstacle is then a distance the computer can use, not only a patch of color in the image.</p>
+      <h3>An occupancy grid, and obstacle avoidance or a short trajectory</h3>
+      <p>For a swarm rule, this comes first. A vehicle has to estimate its own state, see the space next to it, and judge whether the next action can be carried out.</p>
+    </div>
+    <figure class="figure">
+      <img src="../../assets/images/evt1_hover.gif" alt="Hover indoors, aided by optical flow">
+      <figcaption>Hover indoors, aided by optical flow.</figcaption>
+    </figure>
+    <figure class="figure">
+      <img src="../../assets/images/evt1_depth.gif" alt="Onboard depth from the D435">
+      <figcaption>Onboard depth from the D435.</figcaption>
+    </figure>
+    <figure class="figure">
+      <img src="../../assets/images/evt1_avoidance.gif" alt="Short-range avoidance on an occupancy grid">
+      <figcaption>Short-range avoidance on an occupancy grid.</figcaption>
+    </figure>
+
+    <h2 class="section-head">Experiments we plan to run</h2>
+    <div class="content-block">
+      <p>Once takeoff, depth, and short-range avoidance are stable on one aircraft, we will turn it into a swarm-intelligence testbed. The upgrade adds wireless communication and a cable-suspended payload, each of which can be switched off on its own, and a short-range lidar alongside the stereo camera. The experiments below come after that upgrade.</p>
+      <p>An action may depend on only four things: what the vehicle sees, what the radio delivers, the forces it feels, and its own history. The sequence is the same throughout: search from local vision, coordinated motion, then cooperative transport. We then turn the radio off, increase the delay, and fail one vehicle, and we check whether synchronization, transport, turning, and recovery are still there.</p>
+      <p>Vision does not send images. Each aircraft exchanges a target bearing, a confidence, local obstacles, and a timestamp. More aircraft bring more views, more occlusion, and more false detections that agree with each other. Collective judgment need not rise with number.</p>
+      <p>Transport asks whether physical coupling is a communication channel. One vehicle's action becomes a force another can measure in the IMU, the motor load, and the swing of the payload. If synchrony and recovery remain after the radio is off, the force is the message. If the group comes apart at once, explicit communication is still required.</p>
+      <p>As the fraction of failed vehicles rises, we ask whether search or formation drops abruptly past some fraction, rather than writing a backup policy for each aircraft.</p>
+      <p>Stereo vision gives dense geometry nearby, and fails on smoke, glass, and weak texture. A short-range lidar on the same aircraft will keep a measurable geometric channel when vision is deliberately degraded, so we can see whether the collective boundary moves earlier. The assembly steps will be written up separately as a build guide.</p>
+    </div>
+
+    <h2 class="section-head">References</h2>
+    <div class="content-block refs">
+      <p id="ref1">1. Vásárhelyi, G. et al. Optimized flocking of autonomous drones in confined environments. <em>Science Robotics</em> 3, eaat3536 (2018). <a href="https://doi.org/10.1126/scirobotics.aat3536">https://doi.org/10.1126/scirobotics.aat3536</a></p>
+      <p id="ref2">2. Zhou, X. et al. Swarm of micro flying robots in the wild. <em>Science Robotics</em> 7, eabm5954 (2022). <a href="https://doi.org/10.1126/scirobotics.abm5954">https://doi.org/10.1126/scirobotics.abm5954</a></p>
+      <p id="ref3">3. Zhang, Y. et al. Learning vision-based agile flight via differentiable physics. <em>Nature Machine Intelligence</em> 7, 954–966 (2025). <a href="https://doi.org/10.1038/s42256-025-01048-0">https://doi.org/10.1038/s42256-025-01048-0</a></p>
+    </div>
+
+    <p class="footer-link"><a href="https://zhihangliu.cn/#research">&larr; Back to Research</a></p>
+  </div>
+</body>
+</html>
