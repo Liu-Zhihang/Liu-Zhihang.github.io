@@ -24,14 +24,13 @@
     .back-link a{ color:var(--muted); text-decoration:none; }
     .back-link a:hover{ color:var(--text); }
     .cover{
-      width:100%;
+      width: auto;
       max-width: var(--content-max);
-      height:auto;
-      display:block;
-      margin:0 auto 0.6rem;
-      border-radius:12px;
-      background:#050505;
-      box-shadow:0 8px 28px rgba(0,0,0,0.18);
+      height: auto;
+      display: block;
+      margin: 0 auto 0.6rem;
+      border-radius: 12px;
+      background: transparent;
     }
     .project-title{
       font-size:1.85rem;
@@ -40,12 +39,13 @@
       margin:1.25rem auto 0.75rem;
       max-width: var(--content-max);
     }
-    .lead{
-      font-size:1.05rem;
-      color:var(--text);
-      margin:0 auto 0.9rem;
+    p.opening{
       max-width: var(--content-max);
-      line-height:1.7;
+      margin: 0 auto 0.9rem;
+      color: var(--text);
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.7;
     }
     .section-head{
       font-size:1.25rem;
@@ -71,17 +71,17 @@
       margin: 1rem auto 1.35rem;
       text-align: center;
     }
-    .figure img, .figure video, .cover{
-      max-width: 100%;
+    .figure img,
+    .figure video,
+    img.cover{
       width: auto;
+      max-width: min(100%, var(--content-max));
       height: auto;
       display: block;
       margin-left: auto;
       margin-right: auto;
       border-radius: 10px;
-    }
-    .figure video{
-      width: 100%;
+      background: transparent;
     }
     .figure figcaption, .caption{
       color: var(--muted);
@@ -115,8 +115,8 @@
     <p class="caption">EVT-1 from several angles.</p>
 
     <h1 class="project-title">EVT-1: An Indoor Autonomous Drone with Stereo Vision</h1>
-    <p class="lead">On the path toward general swarm intelligence, the drone is currently the most mature of the candidate testbeds, so we are building that one first. EVT-1 is an autonomous stereo-vision drone now being assembled at Evolution Tech. In corridors and laboratories without satellite positioning, it must first take off, hold a stable hover, and avoid obstacles. This single aircraft is not meant for formation displays. It is the sensing and decision-making entry point for the swarm-intelligence experiments that follow.</p>
-    <p class="lead">Formation flight, obstacle avoidance, and slung-load transport are tasks, not the result. The platform must let us switch, for each vehicle, three information channels on or off: local vision, wireless communication, and physical coupling through the cables and the payload. We ask how much collective decision-making remains once explicit communication is removed, whether the three channels can stand in for one another, and whether more aircraft and more information can make the collective judgment worse.</p>
+    <p class="opening">On the path toward general swarm intelligence, the drone is currently the most mature of the candidate testbeds, so we are building that one first. EVT-1 is an autonomous stereo-vision drone now being assembled at Evolution Tech. In corridors and laboratories without satellite positioning, it must first take off, hold a stable hover, and avoid obstacles. This single aircraft is not meant for formation displays. It is the sensing and decision-making entry point for the swarm-intelligence experiments that follow.</p>
+    <p class="opening">Formation flight, obstacle avoidance, and slung-load transport are tasks, not the result. The platform must let us switch, for each vehicle, three information channels on or off: local vision, wireless communication, and physical coupling through the cables and the payload. We ask how much collective decision-making remains once explicit communication is removed, whether the three channels can stand in for one another, and whether more aircraft and more information can make the collective judgment worse.</p>
 
     <figure class="figure video-figure">
       <video src="../../assets/images/evt1_flight.mp4" controls playsinline></video>
