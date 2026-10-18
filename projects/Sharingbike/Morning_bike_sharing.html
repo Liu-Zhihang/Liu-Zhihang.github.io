@@ -138,7 +138,6 @@
       <script>
         // Basemap is CARTO Dark Matter, which does not need a Mapbox secret.
         const MAPBOX_TOKEN = "";
-        const WARNING_MESSAGE = 'Please Provide a Mapbox Token in order to use Kepler.gl. Edit this file and fill out MAPBOX_TOKEN with your access key';
       </script>
 
       <!-- GA: Delete this as you wish, However to pat ourselves on the back, we only track anonymous pageview to understand how many people are using kepler.gl. -->
@@ -180,11 +179,6 @@
 
   <!-- Load our React component. -->
   <script>
-    /* Validate Mapbox Token */
-    if ((MAPBOX_TOKEN || '') === '' || MAPBOX_TOKEN === 'PROVIDE_MAPBOX_TOKEN') {
-      alert(WARNING_MESSAGE);
-    }
-
     /** STORE **/
     const reducers = (function createReducers(redux, keplerGl) {
       return redux.combineReducers({
